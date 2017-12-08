@@ -3,14 +3,6 @@ DotAlign privately analyzes email, calendar, contacts and LinkedIn data, to prov
 
 ## Data Points
 
-{% mermaid %}
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
-{% endmermaid %}
-
 ### Company
 For each company extracted by DotAlign, the following data points  are available.
 
