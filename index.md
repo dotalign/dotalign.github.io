@@ -175,18 +175,6 @@ While integrating with DotAlign data it is important to be able to handle the dy
 
 We suggest that the following data model is created to track identities on the consumption end.
 
-##### Company
-
-```mermaid
-    Alice->>John: Hello John, how are you?
-    John-->>Alice: Great!
-```
-
-|Id| Superseded By|
-|--|--|
-|||
-|||
-
 ## Other Important Considerations
 
 ### Privacy and Data Management
