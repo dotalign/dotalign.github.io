@@ -1,0 +1,31 @@
+#
+# Blog Settings
+#
+author: DotAlign, Inc.
+description: DotAlign provides Relationship Intelligence and Productivity
+url: https://dotalign.com
+title: DotAlign, Inc.
+subtitle: 
+
+#
+# Jekyll Settings
+#
+permalink: /archive/:year/:month/:day/:title/
+paginate: 20
+paginate_path: "page/:num"
+category_dir: categories
+
+plugins:
+  - jekyll-redirect-from
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-feed
+  - jemoji 
+  - jekyll-mentions
+  - jekyll-mermaid
+
+feed:
+  path: atom.xml
+
+mermaid:
+  src: 'mermaid.js'
