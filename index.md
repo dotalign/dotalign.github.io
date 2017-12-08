@@ -141,18 +141,21 @@ For a given contact, this object defines a relationship with a user
 |Relationship Score|The score of the personal relationship between the user and the contact | Number in the range 1 to 99|
 
 ### Work Experience
+
 |Name| Description | Type
 |--|--|--|
 |Company Anchor Identity|The identity being used as the anchor for the company|String|
 |Job Title|The job title that was held at the company|String|
 
 ### Touch
+
 |Name| Description | Type
 |--|--|--|
 |When|The date and time at which the touch happened |DateTime|
 |Who|A list of DotAlign users involved in that touch |List of Strings|
 
 ### Phone Number
+
 |Name| Description | Type
 |--|--|--|
 |Digits|The telephone number |String|
