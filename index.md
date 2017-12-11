@@ -177,7 +177,7 @@ What that practically means is the following:
 1. People and companies are merged automatically when the data justifies it. Also, sometimes DotAlign will get it wrong, and hence the app provides a workflow for users to be able to manually “split” or “merge” people and companies. This aspect must be considered while consuming exported data. As an example, an export done last week may have “Sage Syed” and “S. Ahmed Syed” shown as two separate people. A subsequent one may have them merged together because a common email address was found when a new user’s data set came on-line.
 
 ### Reconciliation
-While integrating with DotAlign data it is important to be able to handle the dynamic nature of People and Company identities. Essentially, in a subsequent export, the following can be true: 
+While integrating with DotAlign data it is important to be able to handle the dynamic nature of People and Company identities. Essentially, in a subsequent consumption of exported data, the following can be true: 
 
 1. Entities which existed before may not be present because they were merged into other entities.
 1. Entities which existed before may not be present because their data source is no longer being shared out.
@@ -188,14 +188,14 @@ To account for these possibilities, we suggest that there should be be some data
 
 To do that, there will have to be some data about identities stored on the consuming end. For example, below, there are 2 tables, one with a row for each company, and the other with a mapping between companies and their identifiers. This can be populated from the export. In the case illustrated below, there are two companies, and the first has four identifiers, and the second, three.
 
-#### Company
+#### company table
 
 |id| name | superseded_by |
 |--|--|--|
 |1|Genomic Machines| null |
 |2|Secure Agents, Inc.| null |
 
-#### Company-Identities
+#### company_identities table
 
 |company_id| identifier |  
 |--|--|
@@ -209,14 +209,21 @@ To do that, there will have to be some data about identities stored on the consu
 
 Firstly, this allows the consumer to have a reasonably stable id that they can use to point other external data to. And secondly, it allows for the lookup needed to generate events to inform external systems about the latest state of an entity. 
 
-Let's say that on a subsequent export, the two companies merged together. 
+The algorithm can be described using the following flow chart:
+
+<div class="mermaid">
+    graph LR
+      a[start export] --> b[get next company]
+      b --> c{does company exist with same identifiers}
+</div>
 
 ```` c#
 foreach (company in export)
 {
   foreach (identifier in company.identifiers)
   {
-
+    // Does company exist with exactly the same identifiers? 
+    var exists = DoesCompanyExist() 
   }
 }
 ````
