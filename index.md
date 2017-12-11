@@ -1,9 +1,11 @@
+---
+layout: default.html
+---
+
 # Integrating with DotAlign Data
 DotAlign privately analyzes email, calendar, contacts and LinkedIn data, to provide productivity and relationship intelligence, right inside Outlook. It also allows colleagues inside a firm to share the list of People and Company relationships with each other, and allows that information to be exported for integration into other enterprise applications. This document describes the exported data and considerations that must be made while dealing with DotAlign data.
 
 ## Data Points
-
-{% include include_mermaid.html %}
 
 <div class="mermaid">
     graph LR
