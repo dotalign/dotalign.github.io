@@ -173,7 +173,7 @@ This is a concept central to the functioning of DotAlign. DotAlign uses a sophis
 
 What that practically means is the following:
 
-1. There is no “DotAlign Id” for a person or company. Instead there is a basket of “real-world” identifiers (email address and name in case of a person, and name and domain in case of a company).
+1. There is no “DotAlign Id” for a person or company. Instead, there is a basket of “real-world” identifiers (email address and name in case of a person, and name and domain in case of a company).
 1. People and companies are merged automatically when the data justifies it. Also, sometimes DotAlign will get it wrong, and hence the app provides a workflow for users to be able to manually “split” or “merge” people and companies. This aspect must be considered while consuming exported data. As an example, an export done last week may have “Sage Syed” and “S. Ahmed Syed” shown as two separate people. A subsequent one may have them merged together because a common email address was found when a new user’s data set came on-line.
 
 ### Reconciliation
@@ -186,22 +186,40 @@ While integrating with DotAlign data it is important to be able to handle the dy
 
 To account for these possibilities, we suggest that there should be be some data about identities stored a "reconciliation" done as a part of consuming an export dump. 
 
-To do that, there will have to be some data about identities stored on the consuming end. For example, below, there are 2 tables, one with a row for each company, and the other with a mapping between companies and their sha identifiers. 
+To do that, there will have to be some data about identities stored on the consuming end. For example, below, there are 2 tables, one with a row for each company, and the other with a mapping between companies and their identifiers. This can be populated from the export. In the case illustrated below, there are two companies, and the first has four identifiers, and the second, three.
 
-Company 
+#### Company
 
-|Id| Name |
-|--|--|
-|1|Genomic Machines|
+|id| name | superseded_by |
+|--|--|--|
+|1|Genomic Machines| null |
+|2|Secure Agents, Inc.| null |
 
-Company-Identities
+#### Company-Identities
 
-|company_id| sha |  
+|company_id| identifier |  
 |--|--|
 |1| D8A928B2043DB77E340B523547BF16CB4AA483F0645FE0A290ED1F20AAB76257|
 |1| 8ECFD3687812CAD0822A07F3425DD6233ADBD8C4FB2C7CEDCEDF1E967A73B060|
 |1| 65D85C2702625FFE89C5C50D40167F291977D6D97D86BBAD819092B7B137BB33|
 |1| 16F676DF27D827E2ED371698414A0E0FF600C6E63B91685F981F18D8998CFFB2|
+|2| 6FB68D19F18D30076C247201D9D4A5EEEC2B4594A5CE526C4A36D0BFB387A0EE|
+|2| F4D319980F50500CC741268D754D2D90BA06C1E39ADCADA97CFE5D040D05DF53|
+|2| 8E35C2CD3BF6641BDB0E2050B76932CBB2E6034A0DDACC1D9BEA82A6BA57F7CF|
+
+Firstly, this allows the consumer to have a reasonably stable id that they can use to point other external data to. And secondly, it allows for the lookup needed to generate events to inform external systems about the latest state of an entity. 
+
+Let's say that on a subsequent export, the two companies merged together. 
+
+```` c#
+foreach (company in export)
+{
+  foreach (identifier in company.identifiers)
+  {
+
+  }
+}
+````
 
 ## Other Important Considerations
 
