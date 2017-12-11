@@ -1,18 +1,7 @@
----
-layout: default
----
-
 # Integrating with DotAlign Data
 DotAlign privately analyzes email, calendar, contacts and LinkedIn data, to provide productivity and relationship intelligence, right inside Outlook. It also allows colleagues inside a firm to share the list of People and Company relationships with each other, and allows that information to be exported for integration into other enterprise applications. This document describes the exported data and considerations that must be made while dealing with DotAlign data.
 
 ## Data Points
-
-<div class="mermaid">
-    graph LR
-      A --- B
-      B-->C[fa:fa-ban forbidden]
-      B-->D(fa:fa-spinner);
-</div>
 
 ### Company
 For each company extracted by DotAlign, the following data points  are available.
@@ -212,12 +201,6 @@ To do that, there will have to be some data about identities stored on the consu
 Firstly, this allows the consumer to have a reasonably stable id that they can use to point other external data to. And secondly, it allows for the lookup needed to generate events to inform external systems about the latest state of an entity. 
 
 The algorithm can be described using the following flow chart:
-
-<div class="mermaid">
-    graph LR
-      a[start export] --> b[get next company]
-      b --> c{does company exist with same identifiers}
-</div>
 
 ```` c#
 foreach (company in export)
