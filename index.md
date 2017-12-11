@@ -17,8 +17,7 @@ For each company extracted by DotAlign, the following data points  are available
 
 |Name| Description | Type |  
 |--|--|--|
-|Anchor Identity | The identity being used as the anchor identity for the company | String |
-|Secondary Identifiers | A list of alternate identifiers for the company (apart from the anchor identity) | List of Strings |
+|Identities | A list of strings that are considered identifiers for the company | List of Strings |
 |Moniker | The "best" name that DotAlign could infer for the company | String |
 | Firm Relationship Score | An aggregated score, representing how well DotAlign users inside the firm as a whole, know this company | Number in the range 1 to 99 |
 |Aliases | A list of other names that the company is known by | List of Strings |
@@ -54,8 +53,7 @@ For each contact extracted by DotAlign, the following data points  are available
 
 |Name| Description | Type
 |--|--|--|
-|Anchor Identity | The identity being used as the anchor identity for the contact | String |
-|Secondary Identifiers | A list of alternate identifiers for the contact (apart from the anchor identity) | List of Strings |
+|Identities | A list of strings that are considered as identities for the contact | List of Strings |
 |First Name | Contact's First Name|String|
 |Last Name| Contact's Last Name|String|
 |Firm Relationship Score | An aggregated score, representing how well DotAlign users inside the firm as a whole, know this contact|Number in the range 1 to 99 |
@@ -179,11 +177,12 @@ What that practically means is the following:
 1. People and companies are merged automatically when the data justifies it. Also, sometimes DotAlign will get it wrong, and hence the app provides a workflow for users to be able to manually “split” or “merge” people and companies. That will somehow have to be considered while consuming exported data. As an example, an export done last week may have “Sage Syed” and “S. Ahmed Syed” shown as two separate people. A subsequent one may have them merged together because a common email address was found when a new user’s data set came on-line.
 
 ### Reconciliation
-While integrating with DotAlign data it is important to be able to handle the dynamic nature of People and Company identities, and below is a suggested way to reconcile identities as subsequent exports are consumed.
+While integrating with DotAlign data it is important to be able to handle the dynamic nature of People and Company identities. Essentially, in a subsequent export, the following can be true: 
 
-#### Data Model
-
-We suggest that the following data model is created to track identities on the consumption end.
+1. Entities which existed before may not be present because they were merged into other entities.
+1. Entities which existed before may not be present because their data source is no longer being shared out.
+1. New entities show up in the export because they were "split" out from existing entities. This usually happens because a user points out that a certain email address does not belong to a contact.
+1. New entities show up in the export because new data sources (new users or additional mailboxes from existing users) come on-line.  
 
 ## Other Important Considerations
 
