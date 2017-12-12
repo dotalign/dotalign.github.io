@@ -170,7 +170,7 @@ For a given contact, this object defines a relationship with a user
 
 |Name| Description | Type
 |--|--|--|
-|Company Anchor Identity|The identity being used as the anchor for the company|String|
+|Company Identity|One of the valid identities for the company|String|
 |Job Title|The job title that was held at the company|String|
 
 ### Touch
@@ -178,13 +178,13 @@ For a given contact, this object defines a relationship with a user
 |Name| Description | Type
 |--|--|--|
 |When|The date and time at which the touch happened |DateTime|
-|Who|A list of DotAlign users involved in that touch |List of Strings|
+|Who|A list of DotAlign user ids (i.e. email addresses) involved in that touch |List of Strings|
 
 ### Phone Number
 
 |Name| Description | Type
 |--|--|--|
-|Digits|The telephone number |String|
+|Digits|The digits (and possibly other characters) that make up the telephone number |String|
 |Type|One of "Work", "Home", "Mobile", "Fax" or "Other" |String|
 
 ## Identity Alignment
@@ -193,7 +193,7 @@ This is a concept central to the functioning of DotAlign. DotAlign uses a sophis
 What that practically means is the following:
 
 1. There is no “DotAlign Id” for a person or company. Instead, there is a basket of “real-world” identifiers (email address and name in case of a person, and name and domain in case of a company).
-1. People and companies are merged automatically when the data justifies it. Also, sometimes DotAlign will get it wrong, and hence the app provides a workflow for users to be able to manually “split” or “merge” people and companies. This aspect must be considered while consuming exported data. As an example, an export done last week may have “Sage Syed” and “S. Ahmed Syed” shown as two separate people. A subsequent one may have them merged together because a common email address was found when a new user’s data set came on-line.
+1. People and companies are merged automatically when the data justifies it. Also, in the event of DotAlign getting it wrong, the app provides a workflow for users to be able to manually “split” or “merge” people and companies. This aspect must be considered while consuming exported data. As an example, an export done last week may have “Sage Syed” and “S. Ahmed Syed” shown as two separate people. A subsequent one may have them merged together because a common email address was found when a new user’s data set came on-line.
 
 ### Reconciliation
 While importing  DotAlign data it is important to be able to handle the dynamic nature of People and Company identities. Essentially, while consuming exported data, the following can be true:
