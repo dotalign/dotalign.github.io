@@ -215,8 +215,8 @@ To account for these possibilities, we suggest performing "reconciliation" as a 
 |4|Zander Corporation| null |
 |5|AdelProc, Inc.| null |
 
-> **id**             - The identifier that can be used to represent the company</br>
-> **name**           - The name of the company as specified by DotAlign</br>
+> **id**             - The identifier that can be used to represent the company
+> **name**           - The name of the company as specified by DotAlign
 > **superseded_by**  - If the company has been merged into another, then this column should contain the id of the other company. Based on the information available to DotAlign, it may decide that two companies are indeed the same, and merge them. That is when one of the companies is said to be superseded by the other. 
 
 #### company_identities table
