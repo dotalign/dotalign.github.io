@@ -1,5 +1,33 @@
 # Integrating with DotAlign Data
-DotAlign privately analyzes email, calendar, contacts and LinkedIn data, to provide productivity and relationship intelligence, right inside Outlook. It also allows colleagues inside a firm to share the list of People and Company relationships with each other, and allows that information to be exported for integration into other enterprise applications. This document describes the exported data and considerations that must be made while dealing with DotAlign data.
+
+## Table of Contents
+<!-- TOC -->
+
+- [Integrating with DotAlign Data](#integrating-with-dotalign-data)
+    - [Table of Contents](#table-of-contents)
+    - [Introduction](#introduction)
+    - [Data Points](#data-points)
+        - [Company](#company)
+            - [Json](#json)
+        - [Contact](#contact)
+            - [Json](#json-1)
+        - [Relationship](#relationship)
+        - [Work Experience](#work-experience)
+        - [Touch](#touch)
+        - [Phone Number](#phone-number)
+    - [Identity Alignment](#identity-alignment)
+        - [Reconciliation](#reconciliation)
+            - [company table](#company-table)
+            - [company_identities table](#company_identities-table)
+        - [Suggested Algorithm](#suggested-algorithm)
+    - [Other Important Considerations](#other-important-considerations)
+        - [Privacy and Data Management](#privacy-and-data-management)
+        - [Auditability](#auditability)
+
+<!-- /TOC -->
+
+## Introduction
+DotAlign privately analyzes email, calendar, contacts, and LinkedIn data, to provide productivity and relationship intelligence, right inside Outlook. It also allows colleagues inside a firm to share the list of People and Company relationships with each other, and allows that information to be exported for integration into other enterprise applications. This document describes the exported data and considerations that must be made while dealing with DotAlign data.
 
 ## Data Points
 
@@ -211,6 +239,8 @@ One way to do that is shown below. Two tables, one with a row for each company o
 
 Firstly, this allows the consumer to have a reasonably stable id that they can use to point other external data to. And secondly, it allows for the lookup needed to generate events to inform external systems about the latest state of an entity. 
 
+### Suggested Algorithm
+
 The algorithm can be described using the following flow chart:
 
 ![Data Import Flowchart](/images/DataExportFlowchart.png)
@@ -252,4 +282,3 @@ Privacy is a concern across the board because our product and brand heavily focu
 
 ### Auditability
 DotAlign gathers data from email, calendar, contacts and LinkedIn. Then, a significant amount of analysis is run to figure out people and company identities from that data. The algorithms and NLP used are constantly evolving as we find issues and improvements, and we’ve found that in an application like ours, where the focus is on automatically gathering and collating information, it is crucial to provide auditing into the “facts” that helped reach a certain conclusion. This is especially true because in certain cases, we get it wrong, and it is important for the user to be able to get a clear understanding of what happened, and take corrective action.
-
