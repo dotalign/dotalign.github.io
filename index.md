@@ -239,6 +239,9 @@ To account for these possibilities, we suggest performing "reconciliation" as a 
 |5| 4C94485E0C21AE6C41CE1DFE7B6BFACEEA5AB68E40A2476F50208E526F506080|
 |5| 8E35C2CD3BF6641BDB0E2050B76932CBB2E6034A0DDACC1D9BEA82A6BA57F7CF|
 
+> **company_id**     - The id from the company table <br />
+> **identifier**     - A DotAlign identifier <br />
+
 Firstly, this allows the consumer to have a reasonably stable id that they can use to point other external data to. And secondly, it allows for the lookup needed to generate events to inform external systems about the latest state of an entity. 
 
 ### Suggested Algorithm
