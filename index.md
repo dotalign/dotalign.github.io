@@ -213,7 +213,7 @@ Firstly, this allows the consumer to have a reasonably stable id that they can u
 
 The algorithm can be described using the following flow chart:
 
-![Data Import Flowchart](/images/dataexportflowchart.png)
+![Data Import Flowchart](/images/DataExportFlowchart.png)
 
 Or using the following pseudo code:
 
