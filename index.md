@@ -18,7 +18,7 @@ For each company extracted by DotAlign, the following data points  are available
 
 This is what the json version of the exported data for a company would look like.
 
-````javascript
+````json
 {
   "identities": [
     "D8A928B2043DB77E340B523547BF16CB4AA483F0645FE0A290ED1F20AAB76257",
