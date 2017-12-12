@@ -16,9 +16,10 @@
     - [Phone Number](#phone-number)
 - [Identity Alignment](#identity-alignment)
     - [Reconciliation](#reconciliation)
-        - [company table](#company-table)
-        - [company_identities table](#company_identities-table)
-    - [Suggested Algorithm](#suggested-algorithm)
+        - [Suggested Data Model](#suggested-data-model)
+            - [company table](#company-table)
+            - [company_identities table](#company_identities-table)
+        - [Suggested Algorithm](#suggested-algorithm)
 - [Other Important Considerations](#other-important-considerations)
     - [Privacy and Data Management](#privacy-and-data-management)
     - [Auditability](#auditability)
@@ -202,9 +203,13 @@ While importing  DotAlign data it is important to be able to handle the dynamic 
 1. New entities show up in the export because they were "split" out from existing entities. This usually happens because a user points out that a certain email address does not belong to a contact.
 1. New entities show up in the export because new data sources (new users or additional mailboxes from existing users) come on-line.  
 
-To account for these possibilities, we suggest performing "reconciliation" as a part of the process of importing DotAlign data. One way to do that is shown below. Two tables would be required, one with a row for each company, and the other with a mapping between the company and its identifiers. The same data model would also apply to contacts.
+To account for these possibilities, we suggest performing "reconciliation" as a part of the process of importing DotAlign data. One way to do that is shown below. 
 
-#### company table
+#### Suggested Data Model
+
+Two tables would be required, one with a row for each company, and the other with a mapping between the company and its identifiers. The same data model would also apply to contacts.
+
+##### company table
 
 |id| name | superseded_by |
 |--|--|--|
@@ -214,11 +219,15 @@ To account for these possibilities, we suggest performing "reconciliation" as a 
 |4|Zander Corporation| null |
 |5|AdelProc, Inc.| null |
 
+<br />
+
 > **id**             - The identifier that can be used to represent the company <br />
 > **name**           - The name of the company as specified by DotAlign <br />
 > **superseded_by**  - If the company has been merged into another, then this column should contain the id of the other company. Based on the information available to DotAlign, it may decide that two companies are indeed the same, and merge them. That is when one of the companies is said to be superseded by the other. 
 
-#### company_identities table
+<br />
+
+##### company_identities table
 
 |company_id| identifier |  
 |--|--|
@@ -238,12 +247,16 @@ To account for these possibilities, we suggest performing "reconciliation" as a 
 |5| 4C94485E0C21AE6C41CE1DFE7B6BFACEEA5AB68E40A2476F50208E526F506080|
 |5| 8E35C2CD3BF6641BDB0E2050B76932CBB2E6034A0DDACC1D9BEA82A6BA57F7CF|
 
+<br />
+
 > **company_id**     - The id from the company table <br />
 > **identifier**     - A DotAlign identifier <br />
 
+<br />
+
 Firstly, this allows the consumer to have a reasonably stable id that they can use to point other external data to. And secondly, it allows for the lookup needed to generate events to inform external systems about the latest state of an entity. 
 
-### Suggested Algorithm
+#### Suggested Algorithm
 
 The algorithm can be described using the following flow chart:
 
