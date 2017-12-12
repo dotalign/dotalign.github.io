@@ -168,16 +168,16 @@ What that practically means is the following:
 1. People and companies are merged automatically when the data justifies it. Also, sometimes DotAlign will get it wrong, and hence the app provides a workflow for users to be able to manually “split” or “merge” people and companies. This aspect must be considered while consuming exported data. As an example, an export done last week may have “Sage Syed” and “S. Ahmed Syed” shown as two separate people. A subsequent one may have them merged together because a common email address was found when a new user’s data set came on-line.
 
 ### Reconciliation
-While integrating with DotAlign data it is important to be able to handle the dynamic nature of People and Company identities. Essentially, in a subsequent consumption of exported data, the following can be true: 
+While importing  DotAlign data it is important to be able to handle the dynamic nature of People and Company identities. Essentially, while consuming exported data, the following can be true:
 
 1. Entities which existed before may not be present because they were merged into other entities.
 1. Entities which existed before may not be present because their data source is no longer being shared out.
 1. New entities show up in the export because they were "split" out from existing entities. This usually happens because a user points out that a certain email address does not belong to a contact.
 1. New entities show up in the export because new data sources (new users or additional mailboxes from existing users) come on-line.  
 
-To account for these possibilities, we suggest that there should be be some data about identities stored a "reconciliation" done as a part of consuming an export dump. 
+To account for these possibilities, we suggest performing "reconciliation" as a part of the process of importing DotAlign data.
 
-To do that, there will have to be some data about identities stored on the consuming end. For example, below, there are 2 tables, one with a row for each company, and the other with a mapping between companies and their identifiers. This can be populated from the export. In the case illustrated below, there are two companies, and the first has four identifiers, and the second, three.
+One way to do that is shown below. Two tables, one with a row for each company or person (as the case may be), and the other with a mapping between the entity and its identifiers. In the case illustrated below, there are five companies, and their corresponding identifiers.
 
 #### company table
 
@@ -185,6 +185,9 @@ To do that, there will have to be some data about identities stored on the consu
 |--|--|--|
 |1|Genomic Machines| null |
 |2|Secure Agents, Inc.| null |
+|3|Delta Analytics| null |
+|4|Zander Corporation| null |
+|5|AdelProc, Inc.| null |
 
 #### company_identities table
 
@@ -197,19 +200,43 @@ To do that, there will have to be some data about identities stored on the consu
 |2| 6FB68D19F18D30076C247201D9D4A5EEEC2B4594A5CE526C4A36D0BFB387A0EE|
 |2| F4D319980F50500CC741268D754D2D90BA06C1E39ADCADA97CFE5D040D05DF53|
 |2| 8E35C2CD3BF6641BDB0E2050B76932CBB2E6034A0DDACC1D9BEA82A6BA57F7CF|
+|3| 6E4D3C7BA1CC49518FAC193F0A8348F89689BAAC58E2B0D55A4B210F59091DD5|
+|3| 859B83D445E97B9A7701DC4CAC10824E87A582372BBD54C4B0B42E2497D8490E|
+|4| 72FF33DD10A07B8F9260975E499104F818412DA1268DF8E7B7B08E3A5B82AD52|
+|4| E294AFFA6863E16FBECDFF7CFFBAF1237A8F2EE2AB2805BB3CACC7FC16D079B2|
+|4| 7807EBC369F474BA6BC1FA51B0BA1CC8D6F79FC8321C1CC8BABCEECB44084EB8|
+|5| D876D59095F13054C120F77202C5378AA25D7787D4ADF70980DBB3F2A7125AC1|
+|5| 4C94485E0C21AE6C41CE1DFE7B6BFACEEA5AB68E40A2476F50208E526F506080|
+|5| 8E35C2CD3BF6641BDB0E2050B76932CBB2E6034A0DDACC1D9BEA82A6BA57F7CF|
 
 Firstly, this allows the consumer to have a reasonably stable id that they can use to point other external data to. And secondly, it allows for the lookup needed to generate events to inform external systems about the latest state of an entity. 
 
 The algorithm can be described using the following flow chart:
 
+![Data Import Flowchart](/images/dataexportflowchart.png)
+
+Or using the following pseudo code:
+
 ```` c#
-foreach (company in export)
+foreach (entity in export)
 {
-  foreach (identifier in company.identifiers)
+  var identifiers = GetIdentifiersFromPreviousImport(entity);
+
+  if (identifiers.Count == 0)
   {
-    // Does company exist with exactly the same identifiers? 
-    var exists = DoesCompanyExist() 
+    MakeNewEntryInEntityTable();  
   }
+  else if (identifiers.Count == 1)
+  {
+    DeleteExistingIdentityRows();
+  }
+  else if (identifiers.Count >= 2)
+  {
+    PickAWinnerAndMarkRestOfTheEntitiesAsSuperseeded(); 
+    DeleteExistingIdentityRows();
+  }
+
+  AddNewIdentityRows();
 }
 ````
 
