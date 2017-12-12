@@ -1,6 +1,6 @@
-<div class="dot-title">Integrating with DotAlign Data</div>
+**Integrating with DotAlign Data**
 
-<div class="dot-bold">Table of Contents<div>
+**Table of Contents**
 
 <!-- TOC -->
 
