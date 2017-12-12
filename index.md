@@ -1,28 +1,27 @@
-# Integrating with DotAlign Data
+<div class="dot-title">Integrating with DotAlign Data</div>
 
-## Table of Contents
+<div class="dot-bold">Table of Contents<div>
+
 <!-- TOC -->
 
-- [Integrating with DotAlign Data](#integrating-with-dotalign-data)
-    - [Table of Contents](#table-of-contents)
-    - [Introduction](#introduction)
-    - [Data Points](#data-points)
-        - [Company](#company)
-            - [Json](#json)
-        - [Contact](#contact)
-            - [Json](#json-1)
-        - [Relationship](#relationship)
-        - [Work Experience](#work-experience)
-        - [Touch](#touch)
-        - [Phone Number](#phone-number)
-    - [Identity Alignment](#identity-alignment)
-        - [Reconciliation](#reconciliation)
-            - [company table](#company-table)
-            - [company_identities table](#company_identities-table)
-        - [Suggested Algorithm](#suggested-algorithm)
-    - [Other Important Considerations](#other-important-considerations)
-        - [Privacy and Data Management](#privacy-and-data-management)
-        - [Auditability](#auditability)
+- [Introduction](#introduction)
+- [Data Points](#data-points)
+    - [Company](#company)
+        - [Json](#json)
+    - [Contact](#contact)
+        - [Json](#json-1)
+    - [Relationship](#relationship)
+    - [Work Experience](#work-experience)
+    - [Touch](#touch)
+    - [Phone Number](#phone-number)
+- [Identity Alignment](#identity-alignment)
+    - [Reconciliation](#reconciliation)
+        - [company table](#company-table)
+        - [company_identities table](#company_identities-table)
+    - [Suggested Algorithm](#suggested-algorithm)
+- [Other Important Considerations](#other-important-considerations)
+    - [Privacy and Data Management](#privacy-and-data-management)
+    - [Auditability](#auditability)
 
 <!-- /TOC -->
 
