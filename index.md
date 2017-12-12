@@ -220,17 +220,17 @@ Or using the following pseudo code:
 ```` c#
 foreach (entity in export)
 {
-  var identifiers = GetIdentifiersFromPreviousImport(entity);
+  var entities = GetEntitiesFromPreviousImport(entity);
 
-  if (identifiers.Count == 0)
+  if (entities.Count == 0)
   {
     MakeNewEntryInEntityTable();  
   }
-  else if (identifiers.Count == 1)
+  else if (entities.Count == 1)
   {
     DeleteExistingIdentityRows();
   }
-  else if (identifiers.Count >= 2)
+  else if (entities.Count >= 2)
   {
     PickAWinnerAndMarkRestOfTheEntitiesAsSuperseeded(); 
     DeleteExistingIdentityRows();
