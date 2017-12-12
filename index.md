@@ -34,13 +34,13 @@ DotAlign privately analyzes email, calendar, contacts, and LinkedIn data, to pro
 ### Company
 For each company extracted by DotAlign, the following data points  are available.
 
-|Name| Description | Type |  
-|--|--|--|
-|Identities | A list of strings that are considered identifiers for the company | List of Strings |
-|Moniker | The "best" name that DotAlign could infer for the company | String |
-| Firm Relationship Score | An aggregated score, representing how well DotAlign users inside the firm as a whole, know this company | Number in the range 1 to 99 |
-|Aliases | A list of other names that the company is known by | List of Strings |
-|Domains|A list of domain urls that are associated with the company | List of Strings |
+|Name| Description | Type | Nullable| 
+|--|--|--|--|
+|Identities | A list of strings that are considered identifiers for the company | List of Strings | No|
+|Moniker | The "best" name that DotAlign could infer for the company | String | No|
+| Firm Relationship Score | An aggregated score, representing how well DotAlign users inside the firm as a whole, know this company | Number in the range 1 to 99 | No|
+|Aliases | A list of other names that the company is known by | List of Strings | Yes|
+|Domains|A list of domain urls that are associated with the company | List of Strings | Yes|
 
 #### Json
 
@@ -70,19 +70,19 @@ This is what the json version of the exported data for a company would look like
 ### Contact
 For each contact extracted by DotAlign, the following data points  are available.
 
-|Name| Description | Type
-|--|--|--|
-|Identities | A list of strings that are considered as identities for the contact | List of Strings |
-|First Name | Contact's First Name|String|
-|Last Name| Contact's Last Name|String|
-|Firm Relationship Score | An aggregated score, representing how well DotAlign users inside the firm as a whole, know this contact|Number in the range 1 to 99 |
-|Relationships|A list of users who have a relationship with the contact, along with the relationship score| List of Relationship Objects |
-|Work Experience | A list of companies and job titles that the contact has been or is associated with | List of Work Experience Objects |  
-| Email Addresses | A list of email addresses for the contact | List of Strings|
-| Phone Numbers | A list of telephone numbers for this contact | List of Phone Number Objects|
-|Last Inbound Touch|The date and time of the last inbound email from the contact to any DotAlign user, along with the list of users | Touch Object |
-|Last Outbound Touch|The date and time of the last outbound email from any DotAlign user to the contact| Touch Object|
-|Last Meeting|The date and time of the last meeting between the contact and any DotAlign User(s)| Touch Object|
+|Name| Description | Type| Nullable|
+|--|--|--|--|
+|Identities | A list of strings that are considered as identities for the contact | List of Strings | No |
+|First Name | Contact's First Name|String| No |
+|Last Name| Contact's Last Name|String| No |
+|Firm Relationship Score | An aggregated score, representing how well DotAlign users inside the firm as a whole, know this contact|Number in the range 1 to 99 | No |
+|Relationships|A list of users who have a relationship with the contact, along with the relationship score| List of Relationship Objects |No |
+|Work Experience | A list of companies and job titles that the contact has been or is associated with | List of Work Experience Objects | Yes| 
+| Email Addresses | A list of email addresses for the contact | List of Strings|Yes|
+| Phone Numbers | A list of telephone numbers for this contact | List of Phone Number Objects|Yes|
+|Last Inbound Touch|The date and time of the last inbound email from the contact to any DotAlign user, along with the list of users | Touch Object |Yes|
+|Last Outbound Touch|The date and time of the last outbound email from any DotAlign user to the contact| Touch Object|Yes|
+|Last Meeting|The date and time of the last meeting between the contact and any DotAlign User(s)| Touch Object|Yes|
 
 #### Json
 This is what the exported data for a contact would look like
@@ -161,31 +161,31 @@ This is what the exported data for a contact would look like
 ### Relationship
 For a given contact, this object defines a relationship with a user
 
-|Name| Description | Type
-|--|--|--|
-|User|The id (email address) of the DotAlign User|String|
-|Relationship Score|The score of the personal relationship between the user and the contact | Number in the range 1 to 99|
+|Name| Description | Type|Nullable|
+|--|--|--|--|
+|User|The id (email address) of the DotAlign User|String|No |
+|Relationship Score|The score of the personal relationship between the user and the contact | Number in the range 1 to 99|No |
 
 ### Work Experience
 
-|Name| Description | Type
-|--|--|--|
-|Company Identity|One of the valid identities for the company|String|
-|Job Title|The job title that was held at the company|String|
+|Name| Description | Type|Nullable|
+|--|--|--|--|
+|Company Identity|One of the valid identities for the company|String|No|
+|Job Title|The job title that was held at the company|String|Yes|
 
 ### Touch
 
-|Name| Description | Type
-|--|--|--|
-|When|The date and time at which the touch happened |DateTime|
-|Who|A list of DotAlign user ids (i.e. email addresses) involved in that touch |List of Strings|
+|Name| Description | Type|Nullable|
+|--|--|--|--|
+|When|The date and time at which the touch happened |DateTime|No|
+|Who|A list of DotAlign user ids (i.e. email addresses) involved in that touch |List of Strings|No|
 
 ### Phone Number
 
-|Name| Description | Type
-|--|--|--|
-|Digits|The digits (and possibly other characters) that make up the telephone number |String|
-|Type|One of "Work", "Home", "Mobile", "Fax" or "Other" |String|
+|Name| Description | Type|Nullable|
+|--|--|--|--|
+|Digits|The digits (and possibly other characters) that make up the telephone number |String|No|
+|Type|One of "Work", "Home", "Mobile", "Fax" or "Other" |String|Yes|
 
 ## Identity Alignment
 This is a concept central to the functioning of DotAlign. DotAlign uses a sophisticated and extensible technique and data model (patent pending) to align people and company identities. This allows DotAlign to dynamically compute identities as there are changes in data, for example the addition or removal of a new data store.
