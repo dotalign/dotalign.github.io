@@ -203,9 +203,7 @@ While importing  DotAlign data it is important to be able to handle the dynamic 
 1. New entities show up in the export because they were "split" out from existing entities. This usually happens because a user points out that a certain email address does not belong to a contact.
 1. New entities show up in the export because new data sources (new users or additional mailboxes from existing users) come on-line.  
 
-To account for these possibilities, we suggest performing "reconciliation" as a part of the process of importing DotAlign data.
-
-One way to do that is shown below. Two tables, one with a row for each company or person (as the case may be), and the other with a mapping between the entity and its identifiers. In the case illustrated below, there are five companies, and their corresponding identifiers.
+To account for these possibilities, we suggest performing "reconciliation" as a part of the process of importing DotAlign data. One way to do that is shown below. Two tables would be required, one with a row for each company, and the other with a mapping between the company and its identifiers. The same data model would also apply to contacts.
 
 #### company table
 
@@ -216,6 +214,10 @@ One way to do that is shown below. Two tables, one with a row for each company o
 |3|Delta Analytics| null |
 |4|Zander Corporation| null |
 |5|AdelProc, Inc.| null |
+
+> **id**             - The identifier that can be used to represent the company</br>
+> **name**           - The name of the company as specified by DotAlign</br>
+> **superseded_by**  - If the company has been merged into another, then this column should contain the id of the other company. Based on the information available to DotAlign, it may decide that two companies are indeed the same, and merge them. That is when one of the companies is said to be superseded by the other. 
 
 #### company_identities table
 
@@ -262,7 +264,7 @@ foreach (entity in export)
   }
   else if (entities.Count >= 2)
   {
-    PickAWinnerAndMarkRestOfTheEntitiesAsSuperseeded(); 
+    PickAWinnerAndMarkRestOfTheEntitiesAsSuperseded(); 
     DeleteExistingIdentityRows();
   }
 
