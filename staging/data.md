@@ -79,13 +79,13 @@ For each contact extracted by DotAlign, the following data points  are available
 |First Name | Contact's First Name|String| No |
 |Last Name| Contact's Last Name|String| No |
 |Firm Relationship Score | An aggregated score, representing how well DotAlign users inside the firm as a whole, know this contact|Number in the range 1 to 99 | No |
-|Relationships|A list of users who have a relationship with the contact, along with the relationship score| List of Relationship Objects |No |
-|Work Experience | A list of companies and job titles that the contact has been or is associated with | List of Work Experience Objects | Yes| 
+|Relationships|A list of users who have a relationship with the contact, along with the relationship score| List of [Relationship](#relationship) Objects |No |
+|Work Experience | A list of companies and job titles that the contact has been or is associated with | List of [Work Experience](#work-experience) Objects | Yes| 
 | Email Addresses | A list of email addresses for the contact | List of Strings|Yes|
-| Phone Numbers | A list of telephone numbers for this contact | List of Phone Number Objects|Yes|
-|Last Inbound Touch|The date and time of the last inbound email from the contact to any DotAlign user, along with the list of users | Touch Object |Yes|
-|Last Outbound Touch|The date and time of the last outbound email from any DotAlign user to the contact| Touch Object|Yes|
-|Last Meeting|The date and time of the last meeting between the contact and any DotAlign User(s)| Touch Object|Yes|
+| Phone Numbers | A list of telephone numbers for this contact | List of [Phone Number](#phone-number) Objects|Yes|
+|Last Inbound Touch|The date and time of the last inbound email from the contact to any DotAlign user, along with the list of users | [Touch](#touch) Object |Yes|
+|Last Outbound Touch|The date and time of the last outbound email from any DotAlign user to the contact| [Touch](touch) Object|Yes|
+|Last Meeting|The date and time of the last meeting between the contact and any DotAlign User(s)| [Touch](touch) Object|Yes|
 
 #### Json
 This is what the exported data for a contact would look like
