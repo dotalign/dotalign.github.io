@@ -40,7 +40,7 @@ For each company extracted by DotAlign, the following data points  are available
 |Name| Description | Type | Nullable| 
 |--|--|--|--|
 |Identities | A list of strings that are considered identifiers for the company | List of Strings | No|
-|Moniker | The "best" name that DotAlign could infer for the company | String | No|
+|Name | The "best" name that DotAlign could infer for the company | String | No|
 | Firm Relationship Score | An aggregated score, representing how well DotAlign users inside the firm as a whole, know this company | Number in the range 1 to 99 | No|
 |Aliases | A list of other names that the company is known by | List of Strings | Yes|
 |Domains|A list of domain urls that are associated with the company | List of Strings | Yes|
