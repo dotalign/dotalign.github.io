@@ -1,6 +1,6 @@
 <div style="font-size: 40px">Consuming DotAlign Data</div>
 
-<hr />
+<br />
 
 <div style="font-size: 20px">Table of Contents</div>
 
