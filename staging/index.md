@@ -1,4 +1,4 @@
-**Integrating with DotAlign Data**
+<div id="dot-title" style="font-size: 40px">Integrating with DotAlign Data</div>
 
 **Table of Contents**
 
