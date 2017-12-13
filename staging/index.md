@@ -1,6 +1,6 @@
-<div id="dot-title" style="font-size: 40px">Integrating with DotAlign Data</div>
+<div style="font-size: 40px">Integrating with DotAlign Data</div>
 
-**Table of Contents**
+<div style="font-size: 20px">Table of Contents</div>
 
 <!-- TOC -->
 
@@ -114,7 +114,7 @@ This is what the exported data for a contact would look like
   "work_experience": [
     {
       "id": "D8A928B2043DB77E340B523547BF16CB4AA483F0645FE0A290ED1F20AAB76257",
-      "job_title": "Chief Technology Office"
+      "job_title": "Chief Technology Officer"
     },
     {
       "id": "348E1524291451369A777605925C4ACD93A49494C8F8A4218C9A9F6184C840B2",
@@ -267,19 +267,19 @@ Or using the following pseudo code:
 ```` c#
 foreach (entity in export)
 {
-  var entities = GetEntitiesFromPreviousImport(entity);
+  var matchingEntities = GetMatchingEntitiesFromPreviousImport(entity);
 
-  if (entities.Count == 0)
+  if (matchingEntities.Count == 0)
   {
-    MakeNewEntryInEntityTable();  
+    MakeNewEntryInEntityTable(entity);  
   }
-  else if (entities.Count == 1)
+  else if (matchingEntities.Count == 1)
   {
     DeleteExistingIdentityRows();
   }
-  else if (entities.Count >= 2)
+  else if (matchingEntities.Count >= 2)
   {
-    PickAWinnerAndMarkRestOfTheEntitiesAsSuperseded(); 
+    PickAWinnerAndMarkRestOfTheEntitiesAsSuperseded(matchingEntities); 
     DeleteExistingIdentityRows();
   }
 
@@ -290,7 +290,9 @@ foreach (entity in export)
 ## Other Important Considerations
 
 ### Privacy and Data Management
-Privacy is a concern across the board because our product and brand heavily focus on it, and we should definitely keep the conversation going on this topic as we make progress. We’ll look to you to help us figure out the right balance between enabling enterprise integration scenarios and respecting privacy of the individual user. A few things to think about:
+Privacy is a concern across the board, because of the natural dual ownership of relationship data between the individual and the enterprise. DotAlign's brand is about respecting the human sensibilities that go with sharing relationships and enabling individuals to be able to control access to their data. We think that when users feel comfortable and trust the platform, they in fact share more.
+
+A few things to think about w.r.t privacy:
 
 1. What happens to exported data when a user decides to stop sharing?
 1. What happens to exported data when a user leaves the firm?
@@ -298,4 +300,4 @@ Privacy is a concern across the board because our product and brand heavily focu
 1. Should users be required to share out of their work mailbox?
 
 ### Auditability
-DotAlign gathers data from email, calendar, contacts and LinkedIn. Then, a significant amount of analysis is run to figure out people and company identities from that data. The algorithms and NLP used are constantly evolving as we find issues and improvements, and we’ve found that in an application like ours, where the focus is on automatically gathering and collating information, it is crucial to provide auditing into the “facts” that helped reach a certain conclusion. This is especially true because in certain cases, we get it wrong, and it is important for the user to be able to get a clear understanding of what happened, and take corrective action.
+DotAlign gathers data from email, calendar, contacts and LinkedIn. Then, a significant amount of analysis is run to extract people and company identities from that data. The algorithms and NLP used are constantly evolving as we find issues and improvements, and we’ve found that in an application like ours, where the focus is on automatically gathering and collating information, it is crucial to provide auditing into the “facts” that helped reach a certain conclusion. This is especially true because in certain cases, the platform gets it wrong, and it is important for the user to be able to get a clear understanding of what happened, and take corrective action.
