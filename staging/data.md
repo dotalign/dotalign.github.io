@@ -308,7 +308,4 @@ A few things to think about w.r.t privacy:
 ### Auditability
 DotAlign gathers data from email, calendar, contacts and LinkedIn. Then, a significant amount of analysis is run to extract people and company identities from that data. The algorithms and NLP used are constantly evolving as we find issues and improvements, and we’ve found that in an application like ours, where the focus is on automatically gathering and collating information, it is crucial to provide auditing into the “facts” that helped reach a certain conclusion. This is especially true because in certain cases, the platform gets it wrong, and it is important for the user to be able to get a clear understanding of what happened, and take corrective action.
 
-<br />
-<br />
-
 {% include footer.html %}
