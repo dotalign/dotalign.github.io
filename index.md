@@ -1,6 +1,8 @@
-**Integrating with DotAlign Data**
+<div style="font-size: 40px">Integrating with DotAlign Data</div>
 
-**Table of Contents**
+<hr />
+
+<div style="font-size: 20px">Table of Contents</div>
 
 <!-- TOC -->
 
@@ -16,9 +18,10 @@
     - [Phone Number](#phone-number)
 - [Identity Alignment](#identity-alignment)
     - [Reconciliation](#reconciliation)
-        - [company table](#company-table)
-        - [company_identities table](#company_identities-table)
-    - [Suggested Algorithm](#suggested-algorithm)
+        - [Suggested Data Model](#suggested-data-model)
+            - [company table](#company-table)
+            - [company_identities table](#company_identities-table)
+        - [Suggested Algorithm](#suggested-algorithm)
 - [Other Important Considerations](#other-important-considerations)
     - [Privacy and Data Management](#privacy-and-data-management)
     - [Auditability](#auditability)
@@ -113,7 +116,7 @@ This is what the exported data for a contact would look like
   "work_experience": [
     {
       "id": "D8A928B2043DB77E340B523547BF16CB4AA483F0645FE0A290ED1F20AAB76257",
-      "job_title": "Chief Technology Office"
+      "job_title": "Chief Technology Officer"
     },
     {
       "id": "348E1524291451369A777605925C4ACD93A49494C8F8A4218C9A9F6184C840B2",
@@ -202,9 +205,13 @@ While importing  DotAlign data it is important to be able to handle the dynamic 
 1. New entities show up in the export because they were "split" out from existing entities. This usually happens because a user points out that a certain email address does not belong to a contact.
 1. New entities show up in the export because new data sources (new users or additional mailboxes from existing users) come on-line.  
 
-To account for these possibilities, we suggest performing "reconciliation" as a part of the process of importing DotAlign data. One way to do that is shown below. Two tables would be required, one with a row for each company, and the other with a mapping between the company and its identifiers. The same data model would also apply to contacts.
+To account for these possibilities, we suggest performing "reconciliation" as a part of the process of importing DotAlign data. One way to do that is shown below. 
 
-#### company table
+#### Suggested Data Model
+
+Two tables would be required, one with a row for each company, and the other with a mapping between the company and its identifiers. The same data model would also apply to contacts.
+
+##### company table
 
 |id| name | superseded_by |
 |--|--|--|
@@ -214,11 +221,15 @@ To account for these possibilities, we suggest performing "reconciliation" as a 
 |4|Zander Corporation| null |
 |5|AdelProc, Inc.| null |
 
+<br />
+
 > **id**             - The identifier that can be used to represent the company <br />
 > **name**           - The name of the company as specified by DotAlign <br />
 > **superseded_by**  - If the company has been merged into another, then this column should contain the id of the other company. Based on the information available to DotAlign, it may decide that two companies are indeed the same, and merge them. That is when one of the companies is said to be superseded by the other. 
 
-#### company_identities table
+<br />
+
+##### company_identities table
 
 |company_id| identifier |  
 |--|--|
@@ -238,12 +249,16 @@ To account for these possibilities, we suggest performing "reconciliation" as a 
 |5| 4C94485E0C21AE6C41CE1DFE7B6BFACEEA5AB68E40A2476F50208E526F506080|
 |5| 8E35C2CD3BF6641BDB0E2050B76932CBB2E6034A0DDACC1D9BEA82A6BA57F7CF|
 
+<br />
+
 > **company_id**     - The id from the company table <br />
 > **identifier**     - A DotAlign identifier <br />
 
+<br />
+
 Firstly, this allows the consumer to have a reasonably stable id that they can use to point other external data to. And secondly, it allows for the lookup needed to generate events to inform external systems about the latest state of an entity. 
 
-### Suggested Algorithm
+#### Suggested Algorithm
 
 The algorithm can be described using the following flow chart:
 
@@ -254,19 +269,19 @@ Or using the following pseudo code:
 ```` c#
 foreach (entity in export)
 {
-  var entities = GetEntitiesFromPreviousImport(entity);
+  var matchingEntities = GetMatchingEntitiesFromPreviousImport(entity);
 
-  if (entities.Count == 0)
+  if (matchingEntities.Count == 0)
   {
-    MakeNewEntryInEntityTable();  
+    MakeNewEntryInEntityTable(entity);  
   }
-  else if (entities.Count == 1)
+  else if (matchingEntities.Count == 1)
   {
     DeleteExistingIdentityRows();
   }
-  else if (entities.Count >= 2)
+  else if (matchingEntities.Count >= 2)
   {
-    PickAWinnerAndMarkRestOfTheEntitiesAsSuperseded(); 
+    PickAWinnerAndMarkRestOfTheEntitiesAsSuperseded(matchingEntities); 
     DeleteExistingIdentityRows();
   }
 
@@ -277,7 +292,9 @@ foreach (entity in export)
 ## Other Important Considerations
 
 ### Privacy and Data Management
-Privacy is a concern across the board because our product and brand heavily focus on it, and we should definitely keep the conversation going on this topic as we make progress. We’ll look to you to help us figure out the right balance between enabling enterprise integration scenarios and respecting privacy of the individual user. A few things to think about:
+Privacy is a concern across the board, because of the natural dual ownership of relationship data between the individual and the enterprise. DotAlign's brand is about respecting the human sensibilities that go with sharing relationships and enabling individuals to be able to control access to their data. We think that when users feel comfortable and trust the platform, they in fact share more.
+
+A few things to think about w.r.t privacy:
 
 1. What happens to exported data when a user decides to stop sharing?
 1. What happens to exported data when a user leaves the firm?
@@ -285,4 +302,4 @@ Privacy is a concern across the board because our product and brand heavily focu
 1. Should users be required to share out of their work mailbox?
 
 ### Auditability
-DotAlign gathers data from email, calendar, contacts and LinkedIn. Then, a significant amount of analysis is run to figure out people and company identities from that data. The algorithms and NLP used are constantly evolving as we find issues and improvements, and we’ve found that in an application like ours, where the focus is on automatically gathering and collating information, it is crucial to provide auditing into the “facts” that helped reach a certain conclusion. This is especially true because in certain cases, we get it wrong, and it is important for the user to be able to get a clear understanding of what happened, and take corrective action.
+DotAlign gathers data from email, calendar, contacts and LinkedIn. Then, a significant amount of analysis is run to extract people and company identities from that data. The algorithms and NLP used are constantly evolving as we find issues and improvements, and we’ve found that in an application like ours, where the focus is on automatically gathering and collating information, it is crucial to provide auditing into the “facts” that helped reach a certain conclusion. This is especially true because in certain cases, the platform gets it wrong, and it is important for the user to be able to get a clear understanding of what happened, and take corrective action.

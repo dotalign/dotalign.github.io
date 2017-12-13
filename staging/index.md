@@ -1,6 +1,7 @@
 <div style="font-size: 40px">Integrating with DotAlign Data</div>
+
 <hr />
-<br />
+
 <div style="font-size: 20px">Table of Contents</div>
 
 <!-- TOC -->
