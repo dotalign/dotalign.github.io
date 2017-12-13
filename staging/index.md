@@ -1,4 +1,4 @@
-![DotAlign, Inc. Logo](/images/logo-home-big.png)
+![DotAlign, Inc. Logo](/images/dotalign-square-48-clear.png)
 
 <br />
 
