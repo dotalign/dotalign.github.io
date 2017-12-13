@@ -310,3 +310,5 @@ DotAlign gathers data from email, calendar, contacts and LinkedIn. Then, a signi
 
 <br />
 <br />
+
+{% include footer.html %}
