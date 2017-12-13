@@ -199,7 +199,9 @@ What that practically means is the following:
 1. People and companies are merged automatically when the data justifies it. Also, in the event of DotAlign getting it wrong, the app provides a workflow for users to be able to manually “split” or “merge” people and companies. This aspect must be considered while consuming exported data. As an example, an export done last week may have “Sage Syed” and “S. Ahmed Syed” shown as two separate people. A subsequent one may have them merged together because a common email address was found when a new user’s data set came on-line.
 
 ### Identifiers
-A note about identifiers. While conceptually, DotAlign uses "real-world" identifiers like email address, domains, and name, in practice, what is used is a [SHA256 Transformation](https://en.wikipedia.org/wiki/SHA-2) of the actual identifier text. This is done because in certain cases, the actual identifier itself may be a private piece of information, not meant to be shared. There can also be cases where a certain name or email address are not considered valid identitiers by DotAlign because of certain business rules, and so separately specifiying the identifiers in a different format (SHA256 in this case) adds a level of clarity.    
+A note about identifiers. While conceptually, DotAlign uses "real-world" identifiers like email address, domains, and name, in practice, what is used is a [SHA256 transformation](https://en.wikipedia.org/wiki/SHA-2) of the actual identifier text. This is done because in certain cases, the actual identifier itself may be a private piece of information, not meant to be shared. There can also be cases where a certain name or email address are not considered valid identitiers by DotAlign because of certain business rules, and so separately specifiying the identifiers in a different format (SHA256 in this case) adds a level of clarity.
+
+> If one of your goals is to map existing people and company data to data exported by DotAlign data, please let us know, we can help to map the identifiers in that data to the DotAlign SHA265 identifiers. 
 
 ### Reconciliation
 While importing  DotAlign data it is important to be able to handle the dynamic nature of People and Company identities. Essentially, while consuming exported data, the following can be true:
@@ -225,13 +227,9 @@ Two tables would be required, one with a row for each company, and the other wit
 |4|Zander Corporation| null |
 |5|AdelProc, Inc.| null |
 
-<br />
-
 > **id**             - The identifier that can be used to represent the company <br />
 > **name**           - The name of the company as specified by DotAlign <br />
 > **superseded_by**  - If the company has been merged into another, then this column should contain the id of the other company. Based on the information available to DotAlign, it may decide that two companies are indeed the same, and merge them. That is when one of the companies is said to be superseded by the other. 
-
-<br />
 
 ##### company_identities table
 
@@ -253,22 +251,18 @@ Two tables would be required, one with a row for each company, and the other wit
 |5| 4C94485E0C21AE6C41CE1DFE7B6BFACEEA5AB68E40A2476F50208E526F506080|
 |5| 8E35C2CD3BF6641BDB0E2050B76932CBB2E6034A0DDACC1D9BEA82A6BA57F7CF|
 
-<br />
-
 > **company_id**     - The id from the company table <br />
 > **identifier**     - A DotAlign identifier <br />
-
-<br />
 
 Firstly, this allows the consumer to have a reasonably stable id that they can use to point other external data to. And secondly, it allows for the lookup needed to generate events to inform external systems about the latest state of an entity. 
 
 #### Suggested Algorithm
 
-The algorithm can be described using the following flow chart:
+The algorithm can be described using the following flow chart.
 
 ![Data Import Flowchart](/images/DataExportFlowchart.png)
 
-Or using the following pseudo code:
+Or using the following pseudo code.
 
 ```` c#
 foreach (entity in dataToImport)
