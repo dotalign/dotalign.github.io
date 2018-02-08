@@ -211,6 +211,16 @@ While importing  DotAlign data it is important to be able to handle the dynamic 
 1. New entities show up in the export because they were "split" out from existing entities. This usually happens because a user points out that a certain email address does not belong to a contact.
 1. New entities show up in the export because new data sources (new users or additional mailboxes from existing users) come on-line.  
 
+Here are some files that illustrate how the different scenarios would look like in terms of actual exported data:
+
+|Scenario |
+|--|
+|[Baseline](data_samples/baseline.json)  |
+|[Simple Update](data_samples/simpleupdate.json) |
+|[Merge](data_samples/merge.json) |
+|[Split](data_samples/split.json) |
+|[Split and Merge](data_samples/splitandmerge.json) |
+
 To account for these possibilities, we suggest performing "reconciliation" as a part of the process of importing DotAlign data. One way to do that is shown below. 
 
 #### Suggested Data Model
