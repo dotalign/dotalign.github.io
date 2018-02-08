@@ -1,0 +1,67 @@
+// This sample shows a work experience and an email address
+// have been added to a contact with identifiers "BC6D" and 
+// "FC42" (in the baseline data)
+
+[
+  {
+    "identities": [
+      "BC6D",
+      "FC42",
+      "E262"
+    ],
+    "first_name": "Jimmy",
+    "last_name": "Ahmed",
+    "firm_score": "84",
+    "contact_information": {
+      "email_address": [
+        "jimmyahmed@gmail.com",
+        "jimmy@aloho.com",
+        "jahmed@secureagents.com"
+      ],
+      "phone_numbers": [
+        {
+          "digits": "2123124324",
+          "type": "mobile"
+        }
+      ]
+    },
+    "work_experiences": [
+      {
+        "id": "DA12",
+        "job_title": "Chief Technology Officer"
+      }
+    ],
+    "interaction_data": {
+      "last_meeting": {
+        "when": "2018-01-10 11:12:56",
+        "who": [
+          "eleanor@summit.com",
+          "rummi@summit.com"
+        ]
+      },
+      "last_inbound": {
+        "when": "2018-01-13 1:23:34",
+        "who": [
+          "eleanor@summit.com",
+          "rummi@summit.com"
+        ]
+      },
+      "last_outbound": {
+        "when": "2018-02-01 16:12:23",
+        "who": [
+          "eleanor@summit.com"
+        ]
+      }
+    },
+    "relationships": [
+      {
+        "user": "eleanor@summit.com",
+        "score": "80"
+      },
+      {
+        "user": "rummi@summit.com",
+        "score": "56"
+      }
+    ]
+  }
+]

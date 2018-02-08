@@ -1,0 +1,91 @@
+// In this sample, you see a person's identity has been
+// split in two entities, with some identities and data
+//attached to one of the resulting entity, and other
+// identities and data to the other
+[
+  {
+    "identities": [
+      "DF56",
+      "ED42"
+    ],
+    "first_name": "Priya",
+    "last_name": "Samarth",
+    "firm_score": "99",
+    "contact_information": {
+      "email_address": [
+        "priyasamarth@gmail.com",
+        "priya@summit.com"
+      ],
+      "phone_numbers": [
+        {
+          "digits": "455345345",
+          "type": "office"
+        }
+      ]
+    },
+    "work_experiences": [
+      {
+        "id": "DE56",
+        "job_title": "Manager, Operations"
+      }
+    ],
+    "interaction_data": {
+      "last_meeting": {
+        "when": "2017-11-1 13:34:56",
+        "who": [
+          "eleanor@summit.com"
+        ]
+      },
+      "last_inbound": {
+        "when": "2018-02-02 14:54:12",
+        "who": [
+          "rummi@summit.com",
+          "eleanor@summit.com"
+        ]
+      }
+    },
+    "relationships": [
+      {
+        "user": "eleanor@summit.com",
+        "score": "99"
+      },
+      {
+        "user": "rummi@summit.com",
+        "score": "99"
+      }
+    ]
+  },
+  {
+    "identities": [
+      "87AD"
+    ],
+    "first_name": "Samart",
+    "last_name": "Singh",
+    "firm_score": "30",
+    "contact_information": {
+      "email_address": [
+        "samart@gio.com"
+      ]
+    },
+    "work_experiences": [
+      {
+        "id": "DD11",
+        "job_title": "Network and Outreach Organizer"
+      }
+    ],
+    "interaction_data": {
+      "last_outbound": {
+        "when": "2018-02-03 15:23:13",
+        "who": [
+          "eleanor@summit.com"
+        ]
+      }
+    },
+    "relationships": [
+      {
+        "user": "eleanor@summit.com",
+        "score": "35"
+      }
+    ]
+  }
+]
