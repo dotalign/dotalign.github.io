@@ -1,6 +1,7 @@
 // In this sample, one person's identity has been split and
 // then one of the resulting entities has been merged with 
 // another person's identity
+
 [
   {
     "identities": [
