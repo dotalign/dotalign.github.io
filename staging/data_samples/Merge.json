@@ -1,0 +1,68 @@
+// This file shows two people in the base line data have been merged
+// into one one person, who now holds all the identities and data
+// that were associated with the two people that were merged
+
+[
+  {
+    "identities": [
+      "B6EB",
+      "EE56",
+      "A34C",
+      "23FE"
+    ],
+    "first_name": "Ulrich",
+    "last_name": "Miller",
+    "firm_score": "99",
+    "contact_information": {
+      "email_address": [
+        "ulrich@wizkid.com",
+        "ulm@wizkid.net"
+      ],
+      "phone_numbers": [
+        {
+          "digits": "2324252244",
+          "type": "mobile"
+        },
+        {
+          "digits": "212372292",
+          "type": "work"
+        }
+      ]
+    },
+    "interaction_data": {
+      "last_meeting": {
+        "when": "2018-02-06T14:00:00Z",
+        "who": [
+          "priya@summit.com",
+          "rummi@summit.com"
+        ]
+      },
+      "last_inbound": {
+        "when": "2018-02-02 14:54:12",
+        "who": [
+          "rummi@summit.com"
+        ]
+      },
+      "last_outbound": {
+        "when": "2018-02-03 15:23:13",
+        "who": [
+          "priya@summit.com"
+        ]
+      }
+    },
+    "relationships": [
+      {
+        "user": "priya@summit.com",
+        "score": "99"
+      },
+      {
+        "user": "rummi@summit.com",
+        "score": "80"
+      },
+      {
+        "user": "eleanor@summit.com",
+        "score": "12"
+      }
+    ]
+  }
+]

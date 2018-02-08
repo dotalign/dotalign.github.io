@@ -1,0 +1,423 @@
+// This is base line data, w.r.t which other examples show how the json
+// exported will change.
+
+// Simulating DotAlign users: priya@summit.com, rummi@summit.com and 
+// eleanor@summit.com inside a firm called Summit (summit.com).
+
+// Idenitity hashes are shortened for brevity
+
+[
+  {
+    "identities": [
+      "BC6D",
+      "FC42"
+    ],
+    "first_name": "Jimmy",
+    "last_name": "Ahmed",
+    "firm_score": "84",
+    "contact_information": {
+      "email_address": [
+        "jimmyahmed@gmail.com",
+        "jimmy@aloho.com"
+      ],
+      "phone_numbers": [
+        {
+          "digits": "2123124324",
+          "type": "mobile"
+        }
+      ]
+    },
+    "interaction_data": {
+      "last_meeting": {
+        "when": "2018-01-10 11:12:56",
+        "who": [
+          "eleanor@summit.com",
+          "rummi@summit.com"
+        ]
+      },
+      "last_inbound": {
+        "when": "2018-01-13 1:23:34",
+        "who": [
+          "eleanor@summit.com",
+          "rummi@summit.com"
+        ]
+      },
+      "last_outbound": {
+        "when": "2018-02-01 16:12:23",
+        "who": [
+          "eleanor@summit.com"
+        ]
+      }
+    },
+    "relationships": [
+      {
+        "user": "eleanor@summit.com",
+        "score": "80"
+      },
+      {
+        "user": "rummi@summit.com",
+        "score": "56"
+      }
+    ]
+  },
+  {
+    "identities": [
+      "B6EB",
+      "EE56"
+    ],
+    "first_name": "Ulrich",
+    "last_name": "Miller",
+    "firm_score": "99",
+    "contact_information": {
+      "email_address": [
+        "ulrich@wizkid.com"
+      ],
+      "phone_numbers": [
+        {
+          "digits": "2324252244",
+          "type": "mobile"
+        },
+        {
+          "digits": "212372292",
+          "type": "work"
+        }
+      ]
+    },
+    "interaction_data": {
+      "last_meeting": {
+        "when": "2018-02-06T14:00:00Z",
+        "who": [
+          "priya@summit.com",
+          "rummi@summit.com"
+        ]
+      },
+      "last_inbound": {
+        "when": "2018-02-02 14:54:12",
+        "who": [
+          "rummi@summit.com"
+        ]
+      },
+      "last_outbound": {
+        "when": "2018-02-03 15:23:13",
+        "who": [
+          "priya@summit.com"
+        ]
+      }
+    },
+    "relationships": [
+      {
+        "user": "priya@summit.com",
+        "score": "99"
+      },
+      {
+        "user": "rummi@summit.com",
+        "score": "80"
+      }
+    ]
+  },
+  {
+    "identities": [
+      "A34C",
+      "23FE"
+    ],
+    "first_name": "Ulman",
+    "last_name": "M",
+    "firm_score": "10",
+    "contact_information": {
+      "email_address": [
+        "ulm@wizkid.net"
+      ],
+      "phone_numbers": []
+    },
+    "relationships": [
+      {
+        "user": "eleanor@summit.com",
+        "score": "12"
+      }
+    ]
+  },
+  {
+    "identities": [
+      "23FE",
+      "189A"
+    ],
+    "first_name": "Jerry",
+    "last_name": "Walker",
+    "firm_score": "67",
+    "contact_information": {
+      "email_address": [
+        "jwalker@gmail.com",
+        "jerrywalker@facet.com"
+      ],
+      "phone_numbers": [
+        {
+          "digits": "4749302882",
+          "type": "mobile"
+        },
+        {
+          "digits": "236392932",
+          "type": "work"
+        }
+      ]
+    },
+    "work_experiences": [
+      {
+        "id": "54EE",
+        "job_title": "Software Engineer"
+      },
+      {
+        "id": "98AA",
+        "job_title": "Bartender"
+      }
+    ],
+    "interaction_data": {
+      "last_meeting": {
+        "when": "2017-12-06T14:00:00Z",
+        "who": [
+          "rummi@summit.com"
+        ]
+      },
+      "last_inbound": {
+        "when": "2017-11-02 14:54:12",
+        "who": [
+          "rummi@summit.com"
+        ]
+      },
+      "last_outbound": {
+        "when": "2017-10-03 15:23:13",
+        "who": [
+          "rummi@summit.com"
+        ]
+      }
+    },
+    "relationships": [
+      {
+        "user": "rummi@summit.com",
+        "score": "76"
+      }
+    ]
+  },
+  {
+    "identities": [
+      "E432"
+    ],
+    "first_name": "Gerry",
+    "last_name": "",
+    "firm_score": "23",
+    "contact_information": {
+      "email_address": [
+        "gwalker@gmail.com"
+      ],
+      "phone_numbers": [
+        {
+          "digits": "3454312212",
+          "type": "mobile"
+        }
+      ]
+    },
+    "work_experiences": [
+      {
+        "id": "9AAE",
+        "job_title": "Owner and Founder, ReBar"
+      }
+    ],
+    "interaction_data": {
+      "last_inbound": {
+        "when": "2017-09-02 3:54:12",
+        "who": [
+          "priya@summit.com"
+        ]
+      }
+    },
+    "relationships": [
+      {
+        "user": "priya@summit.com",
+        "score": "24"
+      }
+    ]
+  },
+  {
+    "identities": [
+      "DF56",
+      "ED42",
+      "87AD"
+    ],
+    "first_name": "Priya",
+    "last_name": "Samarth",
+    "firm_score": "99",
+    "contact_information": {
+      "email_address": [
+        "priyasamarth@gmail.com",
+        "priya@summit.com",
+        "samart@gio.com"
+      ],
+      "phone_numbers": [
+        {
+          "digits": "455345345",
+          "type": "office"
+        }
+      ]
+    },
+    "work_experiences": [
+      {
+        "id": "DE56",
+        "job_title": "Manager, Operations"
+      },
+      {
+        "id": "DD11",
+        "job_title": "Network and Outreach Organizer"
+      }
+    ],
+    "interaction_data": {
+      "last_meeting": {
+        "when": "2017-11-1 13:34:56",
+        "who": [
+          "eleanor@summit.com"
+        ]
+      },
+      "last_inbound": {
+        "when": "2018-02-02 14:54:12",
+        "who": [
+          "rummi@summit.com",
+          "eleanor@summit.com"
+        ]
+      },
+      "last_outbound": {
+        "when": "2018-02-03 15:23:13",
+        "who": [
+          "eleanor@summit.com"
+        ]
+      }
+    },
+    "relationships": [
+      {
+        "user": "eleanor@summit.com",
+        "score": "99"
+      },
+      {
+        "user": "rummi@summit.com",
+        "score": "99"
+      }
+    ]
+  },
+  {
+    "identities": [
+      "BA32",
+      "D23E",
+      "DC45"
+    ],
+    "first_name": "Rummi",
+    "last_name": "Sage",
+    "firm_score": "99",
+    "contact_information": {
+      "email_address": [
+        "rummisage@gmail.com",
+        "rummi@summit.com"
+      ],
+      "phone_numbers": [
+        {
+          "digits": "987253622",
+          "type": "office"
+        },
+        {
+          "digits": "2348738293",
+          "type": "mobile"
+        }
+      ]
+    },
+    "work_experiences": [
+      {
+        "id": "DE56",
+        "job_title": "Chief Executive Officer"
+      }
+    ],
+    "interaction_data": {
+      "last_meeting": {
+        "when": "2017-11-1 13:34:56",
+        "who": [
+          "eleanor@summit.com"
+        ]
+      },
+      "last_inbound": {
+        "when": "2018-02-02 14:54:12",
+        "who": [
+          "priya@summit.com",
+          "eleanor@summit.com"
+        ]
+      },
+      "last_outbound": {
+        "when": "2018-02-03 15:23:13",
+        "who": [
+          "eleanor@summit.com"
+        ]
+      }
+    },
+    "relationships": [
+      {
+        "user": "eleanor@summit.com",
+        "score": "99"
+      },
+      {
+        "user": "priya@summit.com",
+        "score": "99"
+      }
+    ]
+  },
+  {
+    "identities": [
+      "FE12",
+      "34AB"
+    ],
+    "first_name": "Elanor",
+    "last_name": "Williams",
+    "firm_score": "99",
+    "contact_information": {
+      "email_address": [
+        "eleanor@summit.com"
+      ],
+      "phone_numbers": [
+        {
+          "digits": "343533434",
+          "type": "office"
+        }
+      ]
+    },
+    "work_experiences": [
+      {
+        "id": "DE56",
+        "job_title": "Associate"
+      }
+    ],
+    "interaction_data": {
+      "last_meeting": {
+        "when": "2017-11-1 13:34:56",
+        "who": [
+          "rummi@summit.com"
+        ]
+      },
+      "last_inbound": {
+        "when": "2018-02-02 14:54:12",
+        "who": [
+          "rummi@summit.com",
+          "priya@summit.com"
+        ]
+      },
+      "last_outbound": {
+        "when": "2018-02-03 15:23:13",
+        "who": [
+          "priya@summit.com"
+        ]
+      }
+    },
+    "relationships": [
+      {
+        "user": "priya@summit.com",
+        "score": "99"
+      },
+      {
+        "user": "rummi@summit.com",
+        "score": "99"
+      }
+    ]
+  }
+]

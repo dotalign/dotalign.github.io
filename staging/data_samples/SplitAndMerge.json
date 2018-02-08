@@ -1,0 +1,106 @@
+// In this sample, one person's identity has been split and
+// then one of the resulting entities has been merged with 
+// another person's identity
+
+[
+  {
+    "identities": [
+      "23FE"
+    ],
+    "first_name": "Jerry",
+    "last_name": "Walker",
+    "firm_score": "54",
+    "contact_information": {
+      "email_address": [
+        "jerrywalker@facet.com"
+      ],
+      "phone_numbers": [
+        {
+          "digits": "4749302882",
+          "type": "mobile"
+        },
+        {
+          "digits": "236392932",
+          "type": "work"
+        }
+      ]
+    },
+    "work_experiences": [
+      {
+        "id": "54EE",
+        "job_title": "Software Engineer"
+      }
+    ],
+    "interaction_data": {
+      "last_meeting": {
+        "when": "2017-12-06T14:00:00Z",
+        "who": [
+          "rummi@summit.com"
+        ]
+      },
+      "last_inbound": {
+        "when": "2017-11-02 14:54:12",
+        "who": [
+          "rummi@summit.com"
+        ]
+      },
+      "last_outbound": {
+        "when": "2017-10-03 15:23:13",
+        "who": [
+          "rummi@summit.com"
+        ]
+      }
+    },
+    "relationships": [
+      {
+        "user": "rummi@summit.com",
+        "score": "76"
+      }
+    ]
+  },
+  {
+    "identities": [
+      "E432",
+      "189A"
+    ],
+    "first_name": "Gerry",
+    "last_name": "Walker",
+    "firm_score": "45",
+    "contact_information": {
+      "email_address": [
+        "gwalker@gmail.com",
+        "jwalker@gmail.com"
+      ],
+      "phone_numbers": [
+        {
+          "digits": "3454312212",
+          "type": "mobile"
+        }
+      ]
+    },
+    "work_experiences": [
+      {
+        "id": "9AAE",
+        "job_title": "Owner and Founder, ReBar"
+      },
+      {
+        "id": "98AA",
+        "job_title": "Bartender"
+      }
+    ],
+    "interaction_data": {
+      "last_inbound": {
+        "when": "2017-09-02 3:54:12",
+        "who": [
+          "priya@summit.com"
+        ]
+      }
+    },
+    "relationships": [
+      {
+        "user": "priya@summit.com",
+        "score": "24"
+      }
+    ]
+  }
+]
