@@ -1,121 +1,163 @@
+// This is base line data, w.r.t which other examples show how the json
+// exported will change.
+
+// Firm: Summit, summit.com
+// Users: priya@summit.com, rummit@summit.com, eleanor@summit.com
+// Idenitity hashes are shortened for brevity
+
 [
   {
     "identities": [
-      "AA"
+      "BC6DA",
+      "FC4E2"
     ],
     "first_name": "Jimmy",
     "last_name": "Ahmed",
-    "firm_score": 84,
+    "firm_score": "84",
     "contact_information": {
       "email_address": [
-        "jiah134@fale.edu",
         "jimmyahmed@gmail.com",
-        "jimmy@hummit.com"
+        "jimmy@aloho.com"
       ],
-      "phone_numbers": []
+      "phone_numbers": [
+        {
+          "digits": "2123124324",
+          "type": "mobile"
+        }
+      ]
     },
     "interaction_data": {
-      "last_meeting": {},
-      "relationships": [
-        {}
-      ]
-    }
-  },
-  {
-      "identities": [
-        "DD",
-        "AD"
-      ],
-      "first_name": "Priya",
-      "last_name": "Samarth",
-      "firm_score": 99,
-      "contact_information": {
-        "email_address": [
-          "priyasamarth@gmail.com",
-          "priya@hummit.com"
-        ],
-        "phone_numbers": []
+      "last_meeting": {
+        "when": "2018-01-10 11:12:56",
+        "who": [
+          "eleanor@summit.com",
+          "rummi@summit.com"
+        ]
       },
-      "work_experiences": [
-        {
-          "id": "CC001",
-          "job_title": "Product Manager"
-        }
-      ],
-      "interaction_data": {
-        "last_meeting": {
-          "when": "2018-02-06T14:00:00Z",
-          "who": [
-            "kelly@hummit.com"
-          ]
-        }
+      "last_inbound": {
+        "when": "2018-01-13 1:23:34",
+        "who": [
+          "eleanor@summit.com",
+          "rummi@summit.com"
+        ]
+      },
+      "last_outbound": {
+        "when": "2018-02-01 16:12:23",
+        "who": [
+          "eleanor@summit.com"
+        ]
       }
     },
-    {
-      "identities": [
-        "BB"
-      ],
-      "first_name": "Ulrich",
-      "last_name": "Miller",
-      "firm_score": 99,
-      "contact_information": {
-        "email_address": [
-          "ulrich@wizkid.com"
-        ],
-        "phone_numbers": []
-      },
-      "interaction_data":  {
-        "last_meeting": {
-          "when": "2018-02-06T14:00:00Z",
-          "who": [
-            "kelly@hummit.com"
-          ]
-        }
-      },
     "relationships": [
       {
-        "user": "rummi@hummit.com",
-        "score": 85
+        "user": "eleanor@summit.com",
+        "score": "80"
+      },
+      {
+        "user": "rummi@summit.com",
+        "score": "56"
       }
     ]
   },
   {
     "identities": [
-      "BC"
+      "B6EB",
+      "EE56"
     ],
-    "first_name": "Ulman",
-    "last_name": "M",
-    "firm_score": 50,
+    "first_name": "Ulrich",
+    "last_name": "Miller",
+    "firm_score": "99",
     "contact_information": {
       "email_address": [
-        "ulrich@wizkid.net"
+        "ulrich@wizkid.com"
       ],
-      "phone_numbers": []
-      },
-    "interaction_data": {
-      "last_meeting": {}
-      },
-      "relationships": [
+      "phone_numbers": [
         {
-          "user": "kelly@hummit.com",
-          "score": 50
+          "digits": "2324252244",
+          "type": "mobile"
+        },
+        {
+          "digits": "212372292",
+          "type": "work"
         }
       ]
     },
+    "interaction_data": {
+      "last_meeting": {
+        "when": "2018-02-06T14:00:00Z",
+        "who": [
+          "priya@summit.com",
+          "rummi@summit.com"
+        ]
+      },
+      "last_inbound": {
+        "when": "2018-02-02 14:54:12",
+        "who": [
+          "rummi@summit.com"
+        ]
+      },
+      "last_outbound": {
+        "when": "2018-02-03 15:23:13",
+        "who": [
+          "priya@summit.com"
+        ]
+      }
+    },
+    "relationships": [
+      {
+        "user": "priya@summit.com",
+        "score": "99"
+      },
+      {
+        "user": "rummi@summit.com",
+        "score": "80"
+      }
+    ]
+  },
   {
     "identities": [
-      "XY",
-      "ZZ"
+      "A34C",
+      "23FE"
+    ],
+    "first_name": "Ulman",
+    "last_name": "M",
+    "firm_score": "10",
+    "contact_information": {
+      "email_address": [
+        "ulm@wizkid.net"
+      ],
+      "phone_numbers": []
+    },
+    "relationships": [
+      {
+        "user": "eleanor@summit.com",
+        "score": "12"
+      }
+    ]
+  },
+  {
+    "identities": [
+      "23FE",
+      "189A"
     ],
     "first_name": "Jerry",
     "last_name": "Walker",
-    "firm_score": 67,
+    "firm_score": "67",
     "contact_information": {
       "email_address": [
         "jwalker@gmail.com",
-        "jerrywalker@hotmail.com"
+        "jerrywalker@facet.com"
       ],
-      "phone_numbers": []
+      "phone_numbers": [
+        {
+          "digits": "4749302882",
+          "type": "mobile"
+        },
+        {
+          "digits": "236392932",
+          "type": "work"
+        }
+      ]
     },
     "work_experiences": [
       {
@@ -128,29 +170,88 @@
       }
     ],
     "interaction_data": {
-      "last_meeting": {}
+      "last_meeting": {
+        "when": "2017-12-06T14:00:00Z",
+        "who": [
+          "rummi@summit.com"
+        ]
+      },
+      "last_inbound": {
+        "when": "2017-11-02 14:54:12",
+        "who": [
+          "rummi@summit.com"
+        ]
+      },
+      "last_outbound": {
+        "when": "2017-10-03 15:23:13",
+        "who": [
+          "rummi@summit.com"
+        ]
+      }
     },
     "relationships": [
       {
-        "user": "rummi@hummit.com",
-        "score": "6"
+        "user": "rummi@summit.com",
+        "score": "76"
       }
     ]
   },
   {
     "identities": [
-      "AAA"
+      "DF56",
+      "ED42"
     ],
-    "first_name": "Jerry",
-    "last_name": "W.",
-    "firm_score": 30,
+    "first_name": "Priya",
+    "last_name": "Samarth",
+    "firm_score": "99",
     "contact_information": {
       "email_address": [
-        "jerry@hummit.com"
+        "priyasamarth@gmail.com",
+        "priya@summit.com"
       ],
-      "phone_numbers": [ "1-215-725-6549" ]
+      "phone_numbers": [
+        {
+          "digits": "455345345",
+          "type": "office"
+        }
+      ]
     },
-    "work_experiences": [],
-    "interaction_data": {}
+    "work_experiences": [
+      {
+        "id": "CC001",
+        "job_title": "Product Manager"
+      }
+    ],
+    "interaction_data": {
+      "last_meeting": {
+        "when": "2017-11-1 13:34:56",
+        "who": [
+          "eleanor@summit.com"
+        ]
+      },
+      "last_inbound": {
+        "when": "2018-02-02 14:54:12",
+        "who": [
+          "rummi@summit.com",
+          "eleanor@summit.com"
+        ]
+      },
+      "last_outbound": {
+        "when": "2018-02-03 15:23:13",
+        "who": [
+          "eleanor@summit.com"
+        ]
+      }
+    },
+    "relationships": [
+      {
+        "user": "eleanor@summit.com",
+        "score": "99"
+      },
+      {
+        "user": "rummi@summit.com",
+        "score": "99"
+      }
+    ]
   }
 ]

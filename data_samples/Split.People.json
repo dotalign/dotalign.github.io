@@ -29,7 +29,7 @@
     "firm_score": 99,
     "contact_information": {
       "email_address": [
-        "priya@hummit.com"
+        "priya@summit.com"
       ],
       "phone_numbers": []
     },
@@ -43,13 +43,13 @@
       "last_meeting": {
         "when": "2018-02-06T14:00:00Z",
         "who": [
-          "kelly@hummit.com"
+          "eleanor@summit.com"
         ]
       }
     },
     "relationships": [
       {
-        "user": "rummi@hummit.com",
+        "user": "rummi@summit.com",
         "score": "85"
       }
     ]

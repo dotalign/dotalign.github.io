@@ -25,11 +25,11 @@
     },
     "relationships": [
       {
-        "user": "rummi@hummit.com",
+        "user": "rummi@summit.com",
         "score": 85
       },
       {
-        "user": "Kelly@hummit.net",
+        "user": "kelly@hummit.net",
         "score": 50
       }
     ]
