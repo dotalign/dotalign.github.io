@@ -1,0 +1,156 @@
+[
+  {
+    "identities": [
+      "AA"
+    ],
+    "first_name": "Jimmy",
+    "last_name": "Ahmed",
+    "firm_score": 84,
+    "contact_information": {
+      "email_address": [
+        "jiah134@fale.edu",
+        "jimmyahmed@gmail.com",
+        "jimmy@hummit.com"
+      ],
+      "phone_numbers": []
+    },
+    "interaction_data": {
+      "last_meeting": {},
+      "relationships": [
+        {}
+      ]
+    }
+  },
+  {
+      "identities": [
+        "DD",
+        "AD"
+      ],
+      "first_name": "Priya",
+      "last_name": "Samarth",
+      "firm_score": 99,
+      "contact_information": {
+        "email_address": [
+          "priyasamarth@gmail.com",
+          "priya@hummit.com"
+        ],
+        "phone_numbers": []
+      },
+      "work_experiences": [
+        {
+          "id": "CC001",
+          "job_title": "Product Manager"
+        }
+      ],
+      "interaction_data": {
+        "last_meeting": {
+          "when": "2018-02-06T14:00:00Z",
+          "who": [
+            "kelly@hummit.com"
+          ]
+        }
+      }
+    },
+    {
+      "identities": [
+        "BB"
+      ],
+      "first_name": "Ulrich",
+      "last_name": "Miller",
+      "firm_score": 99,
+      "contact_information": {
+        "email_address": [
+          "ulrich@wizkid.com"
+        ],
+        "phone_numbers": []
+      },
+      "interaction_data":  {
+        "last_meeting": {
+          "when": "2018-02-06T14:00:00Z",
+          "who": [
+            "kelly@hummit.com"
+          ]
+        }
+      },
+    "relationships": [
+      {
+        "user": "rummi@hummit.com",
+        "score": 85
+      }
+    ]
+  },
+  {
+    "identities": [
+      "BC"
+    ],
+    "first_name": "Ulman",
+    "last_name": "M",
+    "firm_score": 50,
+    "contact_information": {
+      "email_address": [
+        "ulrich@wizkid.net"
+      ],
+      "phone_numbers": []
+      },
+    "interaction_data": {
+      "last_meeting": {}
+      },
+      "relationships": [
+        {
+          "user": "kelly@hummit.com",
+          "score": 50
+        }
+      ]
+    },
+  {
+    "identities": [
+      "XY",
+      "ZZ"
+    ],
+    "first_name": "Jerry",
+    "last_name": "Walker",
+    "firm_score": 67,
+    "contact_information": {
+      "email_address": [
+        "jwalker@gmail.com",
+        "jerrywalker@hotmail.com"
+      ],
+      "phone_numbers": []
+    },
+    "work_experiences": [
+      {
+        "id": "CC002",
+        "job_title": "Software Engineer"
+      },
+      {
+        "id": "CC003",
+        "job_title": "Bartender"
+      }
+    ],
+    "interaction_data": {
+      "last_meeting": {}
+    },
+    "relationships": [
+      {
+        "user": "rummi@hummit.com",
+        "score": "6"
+      }
+    ]
+  },
+  {
+    "identities": [
+      "AAA"
+    ],
+    "first_name": "Jerry",
+    "last_name": "W.",
+    "firm_score": 30,
+    "contact_information": {
+      "email_address": [
+        "jerry@hummit.com"
+      ],
+      "phone_numbers": [ "1-215-725-6549" ]
+    },
+    "work_experiences": [],
+    "interaction_data": {}
+  }
+]

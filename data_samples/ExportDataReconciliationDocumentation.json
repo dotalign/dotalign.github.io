@@ -1,0 +1,161 @@
+DotAlign, Inc.
+Data Reconciliation of DotAlign data.
+
+In the process of updating with the latest DotAlign data, these are major cases to account for. 
+
+Cases: 
+0) New updated entities
+1) New entities that did not exist before
+2) Entities that has been merged since the previous export
+3) Entities that has been split since the previous export
+4) Entities that has been split and then merged since the previous export
+
+
+=====================================================================================================================
+
+Example of a user's current data:
+-------------------------------------------------------------
+
+In file : UserBaselineDataState
+
+
+Example a newer data export that needs to be reconciled with the current data state:
+---------------------------------------------------------------------------------------
+
+Case 0 in file: Case-0-Updated_Entity
+Case 1 in file: Case-1-New_Entity
+Case 2 in file: Case-2-Merged_Entity
+Case 3 in file: Case-3-Split_Entity
+Case 4 in file: Case-4-Split_Merged_Entity
+
+===================================================================================================================
+
+Example of a reconciliation algorithm. Reconcile data between any states.
+-------------------------------------------------------------------------
+
+During data reconciliation, there exists the Current_State, New_ContactExport, Delete_Set, and Add_Set.
+
+1) Iterate through contacts
+2) Get next item
+3) For each contact find all entities that matches any of the identity hashes.
+  0 matches: add new entity to Add_Set
+  1 match: save modifications made to entity, add older entity to Delete_Set, and add new entity with modifications applied to Add_Set
+  2 or more: save modifications made to all entities, add all entities to Delete_Set, and add new entity with modifications applied
+4) Go back to step 2
+5) After iterating through export entities, add all entities in the Add_Set to the Current_State and delete all entities in the Delete_Set from the Current_State.
+
+(Due to data revocation we may be missing data in the later exports that was present in a prior version. In order to preserve the data, we must not only re-apply modifications made by users but also re-apply data that does not exist in new latest entity instance)
+
+The algorithm above operates under the premise that any entities shared and exported remains shared even after any revocations. In order to enable data revocation (allow users to unshare private contacts), the algorithm needs a slight modification. In the modified algorithm, there is no longer a Delete_Set. After iterating through all export data, the Add_Set becomes the new Current_State (any entities in the former Current_State not in New_ContactExport should be deleted).
+
+Example of a single contact entity from a data export. Includes all data fields that DotAlign currently supports.
+-----------------------------------------------------------------------------------------------------------------
+{
+    "identities": [
+          "89bd882160dc7d6cd247350ea797a05516d710e87c8ad39f536b6be81c90c75d",
+          "26abd7f3c23c3e3d43cd7e1f189d7536ea829e632090fe5a0d6c24eb0e6ef3eb",
+        ],
+    "PersonalData": {
+          "first_name": "Minh",
+          "last_name": "Truong",
+          "firm_score": 84
+        },
+    "contact_information": {
+          "email_address": [
+            "mt3077@columbia.edu",
+            "minhptruong1@gmail.com",
+            "minh@dotalign.com",
+          ],
+          "phone_numbers": []
+        },
+    "WorkExperiences": [
+          {
+            "ExperienceId": 1,
+            "JobTitle": "Software Engineer"
+          },
+          {
+            "ExperienceId": 78,
+            "JobTitle": "Student"
+          }
+    ],
+    "InteractionData": {
+          "LastInboundEmail": {
+            "when": "2018-01-31T20:00:00Z",
+            "who": [
+              {
+                "first_name": "Josh",
+                "last_name": "Quintus",
+                "email_address": [
+                  "josh@dotalign.net",
+                  "josh@dotalign.com"
+                ]
+              }
+            ]
+          },
+          "LastOutBoundEmail": {
+            "when": "2018-01-31T20:00:00Z",
+            "who": [
+              {
+                "first_name": "Josh",
+                "last_name": "Quintus",
+                "email_address": [
+                  "josh@dotalign.net",
+                  "josh@dotalign.com"
+                ]
+              }
+            ]
+          },
+          "last_meeting": {
+            "when": "2018-01-31T20:00:00Z",
+            "who": [
+              {
+                "first_name": "Josh",
+                "last_name": "Quintus",
+                "email_address": [
+                  "josh@dotalign.net",
+                  "josh@dotalign.com"
+                ]
+              },
+              {
+                "first_name": "Ken",
+                "last_name": "Dreyer",
+                "email_address": [
+                  "ken@opspark.com",
+                  "khdreyer@gmail.com",
+                  "ken@dotalign.com"
+                ]
+              }
+            ]
+          }
+    },
+    "relationships": [
+          {
+            "first_name": "Josh",
+            "last_name": "Quintus",
+            "email_address": [
+              "josh@dotalign.net",
+              "josh@dotalign.com"
+            ],
+            "score": 79
+          },
+          {
+            "first_name": "Ken",
+            "last_name": "Dreyer",
+            "email_address": [
+              "ken@opspark.com",
+              "khdreyer@gmail.com",
+              "ken@dotalign.com"
+            ],
+            "score": 37
+          },
+          {
+            "first_name": "Jaspreet",
+            "last_name": "Bakshi",
+            "email_address": [
+              "jaspreet@dotalign.us",
+              "jaspreet@dotalign.com"
+            ],
+            "score": 20
+          }
+    ]
+  },

@@ -1,0 +1,32 @@
+// In this sample, the information associated with the
+// contact with identifier "AA" has been updated, relative
+// to the baseline.
+[
+  {
+    "identities": [
+      "AA"
+    ],
+    "first_name": "Jimmy",
+    "last_name": "Ahmed",
+    "firm_score": "84",
+    "contact_information": {
+      "email_address": [
+        "jiah134@fale.edu",
+        "jimmyahmed@gmail.com",
+        "jimmy@hummit.com"
+      ],
+      "phone_numbers": []
+    },
+    "interaction_data": {},
+    "relationships": [
+      {
+        "user": "kelly@hummit.net",
+        "score": "79"
+      },
+      {
+        "user": "rummi@hummit.com",
+        "score": "20"
+      }
+    ]
+  }
+]

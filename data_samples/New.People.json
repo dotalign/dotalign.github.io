@@ -1,0 +1,30 @@
+// In this sample there is a new entity that does not exist in
+// the baseline data
+[
+  {
+    "identities": [
+      "AB"
+    ],
+    "first_name": "Halley",
+    "last_name": "Tami",
+    "firm_score": "25",
+    "contact_information": {
+      "email_address": [
+        "halleytami@microsoft.com"
+      ],
+      "phone_numbers": []
+    },
+    "interaction_data": {
+      "last_meeting": {
+        "when": null,
+        "who": null
+      }
+    },
+    "relationships": [
+      {
+        "user": "kelly@hummit.com",
+        "score": "34"
+      }
+    ]
+  } 
+]
