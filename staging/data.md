@@ -215,8 +215,8 @@ Here are some files that illustrate how the different scenarios would look like 
 
 |Scenario |
 |--|
-|[Baseline](data_samples/baseline.json)  |
-|[Simple Update](data_samples/simpleupdate.json) |
+|[Baseline](/data_samples/baseline.json)  |
+|[Simple Update](/data_samples/simpleupdate.json) |
 |[Merge](data_samples/merge.json) |
 |[Split](data_samples/split.json) |
 |[Split and Merge](data_samples/splitandmerge.json) |
