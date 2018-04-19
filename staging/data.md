@@ -195,7 +195,7 @@ For a given contact, this object defines a relationship with a user
 
 |Name| Description | Type|Nullable|
 |--|--|--|--|
-|User|The id (email address) of the DotAlign User|String|No |
+|Email Address|The id (email address) of the DotAlign User|String|No |
 |Relationship Score|The score of the personal relationship between the user and the contact | Number in the range 1 to 99|No |
 
 ### Work Experience
