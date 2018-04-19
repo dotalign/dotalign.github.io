@@ -215,11 +215,11 @@ Here are some files that illustrate how the different scenarios would look like 
 
 |Scenario |
 |--|
-|[Baseline](/data_samples/baseline.json)  |
-|[Simple Update](/data_samples/simpleupdate.json) |
-|[Merge](data_samples/merge.json) |
-|[Split](data_samples/split.json) |
-|[Split and Merge](data_samples/splitandmerge.json) |
+|[Baseline](https://github.com/dotalign/dotalign.github.io/blob/master/data_samples/Baseline.json)  |
+|[Simple Update](https://github.com/dotalign/dotalign.github.io/blob/master/data_samples/SimpleUpdate.json) |
+|[Merge](https://github.com/dotalign/dotalign.github.io/blob/master/data_samples/Merge.json) |
+|[Split](https://github.com/dotalign/dotalign.github.io/blob/master/data_samples/Split.json) |
+|[Split and Merge](https://github.com/dotalign/dotalign.github.io/blob/master/data_samples/SplitAndMerge.json) |
 
 To account for these possibilities, we suggest performing "reconciliation" as a part of the process of importing DotAlign data. One way to do that is shown below. 
 
