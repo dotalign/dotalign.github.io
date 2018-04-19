@@ -30,7 +30,7 @@
 <!-- /TOC -->
 
 ## Introduction
-DotAlign privately analyzes email, calendar, contacts, and LinkedIn data, to provide productivity and relationship intelligence, right inside Outlook. It also allows colleagues inside a firm to share the list of People and Company relationships with each other, and allows that information to be exported for integration into other enterprise applications. This document describes the exported data and considerations that must be made while dealing with DotAlign data.
+DotAlign privately analyzes email, calendar, contacts, and LinkedIn data, to provide productivity and relationship intelligence, right inside Outlook. It also allows colleagues inside a firm to share the list of People and Company relationships with each other, and allows that information to be exported for integration into other enterprise applications. This document describes the exported data and considerations that must be made while dealing with DotAlign data
 
 ## Data Points
 
@@ -57,9 +57,11 @@ This is what the json version of the exported data for a company would look like
     "65D85C2702625FFE89C5C50D40167F291977D6D97D86BBAD819092B7B137BB33",
     "16F676DF27D827E2ED371698414A0E0FF600C6E63B91685F981F18D8998CFFB2"
   ],
-  "name": "Genomic Machines",
-  "firm_score": "56",
-  "aliases": [
+  "company_information": {
+    "company_name": "Genomic Machines",
+    "firm_score": 56
+  },
+  "company_aliases": [
     "Genomic Macs",
     "Genomic Machines Inc."
   ],
@@ -69,23 +71,24 @@ This is what the json version of the exported data for a company would look like
     "genetics.com"
   ]
 }
-````
 ### Contact
 For each contact extracted by DotAlign, the following data points  are available.
 
 |Name| Description | Type| Nullable|
 |--|--|--|--|
 |Identities | A list of strings that are considered as identities for the contact | List of Strings | No |
+|Is Collaborator| Indicates whether this contact is a collaborator | Boolean | No|
+|Collaborator Primary Email| Collaborator's DotAlign email | String | Yes |
 |First Name | Contact's First Name|String| No |
 |Last Name| Contact's Last Name|String| No |
 |Firm Relationship Score | An aggregated score, representing how well DotAlign users inside the firm as a whole, know this contact|Number in the range 1 to 99 | No |
-|Relationships|A list of users who have a relationship with the contact, along with the relationship score| List of [Relationship](#relationship) Objects |No |
-|Work Experience | A list of companies and job titles that the contact has been or is associated with | List of [Work Experience](#work-experience) Objects | Yes| 
 | Email Addresses | A list of email addresses for the contact | List of Strings|Yes|
 | Phone Numbers | A list of telephone numbers for this contact | List of [Phone Number](#phone-number) Objects|Yes|
 |Last Inbound Touch|The date and time of the last inbound email from the contact to any DotAlign user, along with the list of users | [Touch](#touch) Object |Yes|
 |Last Outbound Touch|The date and time of the last outbound email from any DotAlign user to the contact| [Touch](touch) Object|Yes|
 |Last Meeting|The date and time of the last meeting between the contact and any DotAlign User(s)| [Touch](touch) Object|Yes|
+|Work Experience | A list of companies and job titles that the contact has been or is associated with | List of [Work Experience](#work-experience) Objects | Yes| 
+|Relationships|A list of users who have a relationship with the contact, along with the relationship score| List of [Relationship](#relationship) Objects |No |
 
 #### Json
 This is what the exported data for a contact would look like
@@ -97,67 +100,92 @@ This is what the exported data for a contact would look like
     "F0CD238DE70F38577A0D97F120D08E126E92BA03337829341DEE99FA7FD65F69",
     "273E5D205BE440F22AAF44266C33719541F9695EECAEBDC14CF687D2B6B02501"
   ],
-  "first_name": "Sage",
-  "last_name": "Syed",
-  "firm_score": "67",
-  "relationships": [
-    {
-      "user": "jaspreet@dotalign.com",
-      "score": "45"
-    },
-    {
-      "user": "ken@dotalign.com",
-      "score": "61"
-    },
-    {
-      "user": "vince@dotalign.com",
-      "score": "24"
-    }
-  ],
+  "is_collaborator": false,
+  "collaborator_primary_email": null,
+  "personal_data": {
+    "first_name": "Sage",
+    "last_name": "Syed",
+    "firm_score": 63
+  },
+  "contact_information": {
+    "email_addresses": [
+      "sage@secureagents.com",
+      "sage.syed@gmail.com"
+    ],
+    "phone_numbers": [
+      {
+        "digits": "6379203729",
+        "type": "mobile"
+      },
+      {
+        "digits": "7283724920",
+        "type": "work"
+      }
+    ]
+  },
   "work_experience": [
     {
-      "id": "D8A928B2043DB77E340B523547BF16CB4AA483F0645FE0A290ED1F20AAB76257",
+      "company_identity": "D8A928B2043DB77E340B523547BF16CB4AA483F0645FE0A290ED1F20AAB76257",
+      "company_name": "Genomic Machines",
       "job_title": "Chief Technology Officer"
     },
     {
-      "id": "348E1524291451369A777605925C4ACD93A49494C8F8A4218C9A9F6184C840B2",
+      "company_identity": "348E1524291451369A777605925C4ACD93A49494C8F8A4218C9A9F6184C840B2",
+      "company_name": "Oracle Engines",
       "job_title": "Lead Software Engineer"
     }
   ],
-  "email_addresses": [
-    "sage@secureagents.com",
-    "sage.syed@gmail.com"
-  ],
-  "phone_numbers": [
+  "interaction_data": {
+    "last_inbound_email": {
+      "when": "2018-02-20T20:19:21Z",
+      "people": [
+        {
+          "first_name": "Vince",
+          "last_name": "Scafaria",
+          "email_address": "vince@dotalign.com"
+        },
+        {
+          "first_name": "Minh",
+          "last_name": "Truong",
+          "email_address": "minh@dotalign.com"
+        }
+      ]
+    },
+    "last_outbound_email": {
+      "when": "2018-02-16T20:28:03.1731318Z",
+      "people": [
+        {
+          "first_name": "Ken",
+          "last_name": "Dreyer",
+          "email_address": "ken@dotalign.com"
+        }
+      ]
+    },
+    "last_meeting": {
+      "when": "2018-02-15T20:00:00Z",
+      "people": [
+        {
+          "first_name": "Ken",
+          "last_name": "Dreyer",
+          "email_address": "ken@dotalign.com"
+        }
+      ]
+    }
+  },
+  "relationships": [
     {
-      "digits": "6379203729",
-      "type": "mobile"
+      "email_address": "jaspreet@dotalign.com",
+      "relationship_score": "45"
     },
     {
-      "digits": "7283724920",
-      "type": "work"
+      "email_address": "ken@dotalign.com",
+      "relationship_score": "61"
+    },
+    {
+      "email_address": "vince@dotalign.com",
+      "relationship_score": "24"
     }
-  ],
-  "last_inbound": {
-    "when": "2017-10-28 15:34:45",
-    "who": [
-      "jaspreet@dotalign.com",
-      "ken@dotalign.com"
-    ]
-  },
-  "last_outbound": {
-    "when": "2017-10-29 11:12:56",
-    "who": [
-      "ken@dotalign.com"
-    ]
-  },
-  "last_meeting": {
-    "when": "2017-10-11 10:00:00",
-    "who": [
-      "ken@dotalign.com",
-      "vince@dotalign.com"
-    ]
-  }
+  ]
 }
 ````
 
@@ -174,6 +202,7 @@ For a given contact, this object defines a relationship with a user
 |Name| Description | Type|Nullable|
 |--|--|--|--|
 |Company Identity|One of the valid identities for the company|String|No|
+|Company Name|One of the names that DotAlign could infer for the company|String|No|
 |Job Title|The job title that was held at the company|String|Yes|
 
 ### Touch
@@ -206,10 +235,11 @@ A note about identifiers. While conceptually, DotAlign uses "real-world" identif
 ### Reconciliation
 While importing  DotAlign data it is important to be able to handle the dynamic nature of People and Company identities. Essentially, while consuming exported data, the following can be true:
 
-1. Entities which existed before may not be present because they were merged into other entities.
+1. New entities show up in the export because new data sources (new users or additional mailboxes from existing users) come on-line. 
 1. Entities which existed before may not be present because their data source is no longer being shared out.
-1. New entities show up in the export because they were "split" out from existing entities. This usually happens because a user points out that a certain email address does not belong to a contact.
-1. New entities show up in the export because new data sources (new users or additional mailboxes from existing users) come on-line.  
+1. Entities may have been updated and essential information may have changed.
+1. Entities which existed before may not be present because they were merged into other entities.
+1. New entities show up in the export because they were "split" out from existing entities. This usually happens because a user points out that a certain email address does not belong to a contact. 
 
 Here are some files that illustrate how the different scenarios would look like in terms of actual exported data:
 
