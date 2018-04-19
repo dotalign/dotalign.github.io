@@ -71,6 +71,7 @@ This is what the json version of the exported data for a company would look like
     "genetics.com"
   ]
 }
+````
 ### Contact
 For each contact extracted by DotAlign, the following data points  are available.
 
@@ -78,7 +79,7 @@ For each contact extracted by DotAlign, the following data points  are available
 |--|--|--|--|
 |Identities | A list of strings that are considered as identities for the contact | List of Strings | No |
 |Is Collaborator| Indicates whether this contact is a collaborator | Boolean | No|
-|Collaborator Primary Email| Collaborator's DotAlign email | String | Yes |
+|Collaborator Primary Email| Collaborator's registered email with DotAlign| String | Yes |
 |First Name | Contact's First Name|String| No |
 |Last Name| Contact's Last Name|String| No |
 |Firm Relationship Score | An aggregated score, representing how well DotAlign users inside the firm as a whole, know this contact|Number in the range 1 to 99 | No |
@@ -194,7 +195,7 @@ For a given contact, this object defines a relationship with a user
 
 |Name| Description | Type|Nullable|
 |--|--|--|--|
-|User|The id (email address) of the DotAlign User|String|No |
+|Email Address|The id (email address) of the DotAlign User|String|No |
 |Relationship Score|The score of the personal relationship between the user and the contact | Number in the range 1 to 99|No |
 
 ### Work Experience
@@ -245,11 +246,11 @@ Here are some files that illustrate how the different scenarios would look like 
 
 |Scenario |
 |--|
-|[Baseline](/data_samples/baseline.json)  |
-|[Simple Update](/data_samples/simpleupdate.json) |
-|[Merge](data_samples/merge.json) |
-|[Split](data_samples/split.json) |
-|[Split and Merge](data_samples/splitandmerge.json) |
+|[Baseline](https://github.com/dotalign/dotalign.github.io/blob/master/data_samples/Baseline.json)  |
+|[Simple Update](https://github.com/dotalign/dotalign.github.io/blob/master/data_samples/SimpleUpdate.json) |
+|[Merge](https://github.com/dotalign/dotalign.github.io/blob/master/data_samples/merge.json) |
+|[Split](https://github.com/dotalign/dotalign.github.io/blob/master/data_samples/split.json) |
+|[Split and Merge](https://github.com/dotalign/dotalign.github.io/blob/master/data_samples/splitandmerge.json) |
 
 To account for these possibilities, we suggest performing "reconciliation" as a part of the process of importing DotAlign data. One way to do that is shown below. 
 
@@ -305,27 +306,47 @@ The algorithm can be described using the following flow chart.
 Or using the following pseudo code.
 
 ```` c#
+
+// newly created entities from new data to import 
+var newEntitySet();
+// outdated entities due to entity splits and merges
+var deleteSet();
+
 foreach (entity in dataToImport)
 {
   var matchingEntities = GetMatchingEntitiesFromPreviousImport(entity);
 
   if (matchingEntities.Count == 0)
   {
-    MakeNewEntryInEntityTable(entity);  
+    var newEntity = MakeNewEntryInEntityTable(entity);  
+    newEntitySet.Add(newEntity);
   }
-  else if (matchingEntities.Count == 1)
+  else if (matchingEntities.Count >= 1)
   {
-    DeleteExistingIdentityRows();
+    var modificationsMade = GetModifications(matchingEntities);
+    var newEntity = MakeNewEntryInEntityTable(entity);  
+    newEntity.ApplyModifications(modificationsMade);
+    newEntitySet.Add(newEntity);
+    
+    deleteSet.Add(matchingEntities);
   }
-  else if (matchingEntities.Count >= 2)
-  {
-    PickAWinnerAndMarkRestOfTheEntitiesAsSuperseded(matchingEntities); 
-    DeleteExistingIdentityRows();
-  }
-
-  AddNewIdentityRows();
 }
+
+if(RevokeData == true)
+{
+    // In order to implement data revocation, all older entities not found in new import must be deleted.
+    // the deleteSet is not necessary in this case.
+    entityData = newEntitySet;
+}
+else
+{
+    // No data revocation
+    entityData.Delete(deleteSet);
+    entityData.Add(newEntitySet);
+}
+
 ````
+Considerations regarding privacy and data revocation are discussed below.
 
 ## Other Important Considerations
 
@@ -338,6 +359,8 @@ A few things to think about w.r.t privacy:
 1. What happens to exported data when a user leaves the firm?
 1. Should the rules concerning how data is handled be different for work mailbox vs. LinkedIn vs. other mailboxes that the user may have enabled?
 1. Should users be required to share out of their work mailbox?
+
+Our pseudo code in the section above contains an example of how to address these issues and revoke data that is no longer being shared.
 
 ### Auditability
 DotAlign gathers data from email, calendar, contacts and LinkedIn. Then, a significant amount of analysis is run to extract people and company identities from that data. The algorithms and NLP used are constantly evolving as we find issues and improvements, and we’ve found that in an application like ours, where the focus is on automatically gathering and collating information, it is crucial to provide auditing into the “facts” that helped reach a certain conclusion. This is especially true because in certain cases, the platform gets it wrong, and it is important for the user to be able to get a clear understanding of what happened, and take corrective action.
