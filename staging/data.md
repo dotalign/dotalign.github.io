@@ -306,7 +306,10 @@ The algorithm can be described using the following flow chart.
 Or using the following pseudo code.
 
 ```` c#
+
+// new entities from new data to import 
 var newEntitySet();
+// outdated entities due to entity splits and merges
 var deleteSet();
 
 foreach (entity in dataToImport)
@@ -329,15 +332,22 @@ foreach (entity in dataToImport)
   }
 }
 
-
-// Data Revocation. deleteSet() not necessary
-entityData = newEntitySet;
-
-// No data revocation
-entityData.Delete(deleteSet);
-entityData.Add(newEntitySet);
+if(RevokeData == true)
+{
+    // In order to implement data revocation, all older entities not found in new import must be deleted.
+    // the deleteSet is not necessary in this case.
+    entityData = newEntitySet;
+}
+else
+{
+    // No data revocation
+    entityData.Delete(deleteSet);
+    entityData.Add(newEntitySet);
+}
 
 ````
+
+Considerations regarding privacy and data revocation are discussed below
 
 ## Other Important Considerations
 
