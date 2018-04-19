@@ -79,7 +79,7 @@ For each contact extracted by DotAlign, the following data points  are available
 |--|--|--|--|
 |Identities | A list of strings that are considered as identities for the contact | List of Strings | No |
 |Is Collaborator| Indicates whether this contact is a collaborator | Boolean | No|
-|Collaborator Primary Email| Collaborator's DotAlign email | String | Yes |
+|Collaborator Primary Email| Collaborator's registered email with DotAlign| String | Yes |
 |First Name | Contact's First Name|String| No |
 |Last Name| Contact's Last Name|String| No |
 |Firm Relationship Score | An aggregated score, representing how well DotAlign users inside the firm as a whole, know this contact|Number in the range 1 to 99 | No |
