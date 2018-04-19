@@ -306,26 +306,37 @@ The algorithm can be described using the following flow chart.
 Or using the following pseudo code.
 
 ```` c#
+var newEntitySet();
+var deleteSet();
+
 foreach (entity in dataToImport)
 {
   var matchingEntities = GetMatchingEntitiesFromPreviousImport(entity);
 
   if (matchingEntities.Count == 0)
   {
-    MakeNewEntryInEntityTable(entity);  
+    var newEntity = MakeNewEntryInEntityTable(entity);  
+    newEntitySet.Add(newEntity);
   }
-  else if (matchingEntities.Count == 1)
+  else if (matchingEntities.Count >= 1)
   {
-    DeleteExistingIdentityRows();
+    var modificationsMade = GetModifications(matchingEntities);
+    var newEntity = MakeNewEntryInEntityTable(entity);  
+    newEntity.ApplyModifications(modificationsMade);
+    newEntitySet.Add(newEntity);
+    
+    deleteSet.Add(matchingEntities);
   }
-  else if (matchingEntities.Count >= 2)
-  {
-    PickAWinnerAndMarkRestOfTheEntitiesAsSuperseded(matchingEntities); 
-    DeleteExistingIdentityRows();
-  }
-
-  AddNewIdentityRows();
 }
+
+
+// Data Revocation. deleteSet() not necessary
+entityData = newEntitySet;
+
+// No data revocation
+entityData.Delete(deleteSet);
+entityData.Add(newEntitySet);
+
 ````
 
 ## Other Important Considerations
