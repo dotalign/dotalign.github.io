@@ -71,6 +71,7 @@ This is what the json version of the exported data for a company would look like
     "genetics.com"
   ]
 }
+````
 ### Contact
 For each contact extracted by DotAlign, the following data points  are available.
 
