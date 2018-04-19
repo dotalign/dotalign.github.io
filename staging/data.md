@@ -246,11 +246,11 @@ Here are some files that illustrate how the different scenarios would look like 
 
 |Scenario |
 |--|
-|[Baseline](/data_samples/baseline.json)  |
-|[Simple Update](/data_samples/simpleupdate.json) |
-|[Merge](data_samples/merge.json) |
-|[Split](data_samples/split.json) |
-|[Split and Merge](data_samples/splitandmerge.json) |
+|[Baseline](https://github.com/dotalign/dotalign.github.io/blob/master/data_samples/Baseline.json)  |
+|[Simple Update](https://github.com/dotalign/dotalign.github.io/blob/master/data_samples/SimpleUpdate.json) |
+|[Merge](https://github.com/dotalign/dotalign.github.io/blob/master/data_samples/merge.json) |
+|[Split](https://github.com/dotalign/dotalign.github.io/blob/master/data_samples/split.json) |
+|[Split and Merge](https://github.com/dotalign/dotalign.github.io/blob/master/data_samples/splitandmerge.json) |
 
 To account for these possibilities, we suggest performing "reconciliation" as a part of the process of importing DotAlign data. One way to do that is shown below. 
 
@@ -346,8 +346,7 @@ else
 }
 
 ````
-
-Considerations regarding privacy and data revocation are discussed below
+Considerations regarding privacy and data revocation are discussed below.
 
 ## Other Important Considerations
 
@@ -361,7 +360,7 @@ A few things to think about w.r.t privacy:
 1. Should the rules concerning how data is handled be different for work mailbox vs. LinkedIn vs. other mailboxes that the user may have enabled?
 1. Should users be required to share out of their work mailbox?
 
-Our pseudo code in the section above contains an example of how to address these issues regarding data revocation.
+Our pseudo code in the section above contains an example of how to address these issues and revoke data that is no longer being shared.
 
 ### Auditability
 DotAlign gathers data from email, calendar, contacts and LinkedIn. Then, a significant amount of analysis is run to extract people and company identities from that data. The algorithms and NLP used are constantly evolving as we find issues and improvements, and we’ve found that in an application like ours, where the focus is on automatically gathering and collating information, it is crucial to provide auditing into the “facts” that helped reach a certain conclusion. This is especially true because in certain cases, the platform gets it wrong, and it is important for the user to be able to get a clear understanding of what happened, and take corrective action.
