@@ -307,7 +307,7 @@ Or using the following pseudo code.
 
 ```` c#
 
-// new entities from new data to import 
+// newly created entities from new data to import 
 var newEntitySet();
 // outdated entities due to entity splits and merges
 var deleteSet();
