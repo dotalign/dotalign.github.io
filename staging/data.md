@@ -143,12 +143,12 @@ This is what the exported data for a contact would look like
         {
           "first_name": "Vince",
           "last_name": "Scafaria",
-          "email_address": "vince@dotalign.com"
+          "collaborator_primary_email": "vince@dotalign.com"
         },
         {
           "first_name": "Minh",
           "last_name": "Truong",
-          "email_address": "minh@dotalign.com"
+          "collaborator_primary_email": "minh@dotalign.com"
         }
       ]
     },
@@ -158,7 +158,7 @@ This is what the exported data for a contact would look like
         {
           "first_name": "Ken",
           "last_name": "Dreyer",
-          "email_address": "ken@dotalign.com"
+          "collaborator_primary_email": "ken@dotalign.com"
         }
       ]
     },
@@ -168,7 +168,7 @@ This is what the exported data for a contact would look like
         {
           "first_name": "Ken",
           "last_name": "Dreyer",
-          "email_address": "ken@dotalign.com"
+          "collaborator_primary_email": "ken@dotalign.com"
         }
       ]
     }
