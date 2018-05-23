@@ -41,8 +41,8 @@ For each company extracted by DotAlign, the following data points  are available
 |--|--|--|--|
 |Identities | A list of strings that are considered identifiers for the company | List of Strings | No|
 |Name | The "best" name that DotAlign could infer for the company | String | No|
-| Firm Relationship Score | An aggregated score, representing how well DotAlign users inside the firm as a whole, know this company | Number in the range 1 to 99 | No|
-|Aliases | A list of other names that the company is known by | List of Strings | Yes|
+| Firm Score | An aggregated relationship score, representing how well DotAlign users inside the firm as a whole, know this company | Number in the range 1 to 99 | No|
+|Company Aliases | A list of other names that the company is known by | List of Strings | Yes|
 |Domains|A list of domain urls that are associated with the company | List of Strings | Yes|
 
 #### Json
@@ -82,13 +82,13 @@ For each contact extracted by DotAlign, the following data points  are available
 |Collaborator Primary Email| Collaborator's registered email with DotAlign| String | Yes |
 |First Name | Contact's First Name|String| No |
 |Last Name| Contact's Last Name|String| No |
-|Firm Relationship Score | An aggregated score, representing how well DotAlign users inside the firm as a whole, know this contact|Number in the range 1 to 99 | No |
+|Firm Score | An aggregated relationship score, representing how well DotAlign users inside the firm as a whole, know this contact|Number in the range 1 to 99 | No |
 | Email Addresses | A list of email addresses for the contact | List of Strings|Yes|
 | Phone Numbers | A list of telephone numbers for this contact | List of [Phone Number](#phone-number) Objects|Yes|
-|Last Inbound Touch|The date and time of the last inbound email from the contact to any DotAlign user, along with the list of users | [Touch](#touch) Object |Yes|
-|Last Outbound Touch|The date and time of the last outbound email from any DotAlign user to the contact| [Touch](touch) Object|Yes|
-|Last Meeting|The date and time of the last meeting between the contact and any DotAlign User(s)| [Touch](touch) Object|Yes|
 |Work Experience | A list of companies and job titles that the contact has been or is associated with | List of [Work Experience](#work-experience) Objects | Yes| 
+|Last Inbound Email|The date and time of the last inbound email from the contact to any DotAlign user, along with the list of users | [Touch](#touch) Object |Yes|
+|Last Outbound Email|The date and time of the last outbound email from any DotAlign user to the contact| [Touch](touch) Object|Yes|
+|Last Meeting|The date and time of the last meeting between the contact and any DotAlign User(s)| [Touch](touch) Object|Yes|
 |Relationships|A list of users who have a relationship with the contact, along with the relationship score| List of [Relationship](#relationship) Objects |No |
 
 #### Json
