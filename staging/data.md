@@ -87,8 +87,8 @@ For each contact extracted by DotAlign, the following data points  are available
 | Phone Numbers | A list of telephone numbers for this contact | List of [Phone Number](#phone-number) Objects|Yes|
 |Work Experience | A list of companies and job titles that the contact has been or is associated with | List of [Work Experience](#work-experience) Objects | Yes| 
 |Last Inbound Email|The date and time of the last inbound email from the contact to any DotAlign user, along with the list of users | [Touch](#touch) Object |Yes|
-|Last Outbound Email|The date and time of the last outbound email from any DotAlign user to the contact| [Touch](touch) Object|Yes|
-|Last Meeting|The date and time of the last meeting between the contact and any DotAlign User(s)| [Touch](touch) Object|Yes|
+|Last Outbound Email|The date and time of the last outbound email from any DotAlign user to the contact| [Touch](#touch) Object|Yes|
+|Last Meeting|The date and time of the last meeting between the contact and any DotAlign User(s)| [Touch](#touch) Object|Yes|
 |Relationships|A list of users who have a relationship with the contact, along with the relationship score| List of [Relationship](#relationship) Objects |No |
 
 #### Json
