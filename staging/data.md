@@ -85,7 +85,7 @@ For each contact extracted by DotAlign, the following data points  are available
 |Firm Score | An aggregated relationship score, representing how well DotAlign users inside the firm as a whole, know this contact|Number in the range 1 to 99 | No |
 | Email Addresses | A list of email addresses for the contact | List of Strings|Yes|
 | Phone Numbers | A list of telephone numbers for this contact | List of [Phone Number](#phone-number) Objects|Yes|
-|Work Experience | A list of companies and job titles that the contact has been or is associated with | List of [Work Experience](#work-experience) Objects | Yes| 
+|Work Experience | A list of companies and job titles that the contact has been or is associated with, as well as whether those associations seem to be former employment experiences or not | List of [Work Experience](#work-experience) Objects | Yes| 
 |Last Inbound Email|The date and time of the last inbound email from the contact to any DotAlign user, along with the list of users | [Touch](#touch) Object |Yes|
 |Last Outbound Email|The date and time of the last outbound email from any DotAlign user to the contact| [Touch](#touch) Object|Yes|
 |Last Meeting|The date and time of the last meeting between the contact and any DotAlign User(s)| [Touch](#touch) Object|Yes|
@@ -128,12 +128,14 @@ This is what the exported data for a contact would look like
     {
       "company_identity": "D8A928B2043DB77E340B523547BF16CB4AA483F0645FE0A290ED1F20AAB76257",
       "company_name": "Genomic Machines",
-      "job_title": "Chief Technology Officer"
+      "job_title": "Chief Technology Officer",
+      "is_former": false
     },
     {
       "company_identity": "348E1524291451369A777605925C4ACD93A49494C8F8A4218C9A9F6184C840B2",
       "company_name": "Oracle Engines",
-      "job_title": "Lead Software Engineer"
+      "job_title": "Lead Software Engineer",
+      "is_former": true
     }
   ],
   "interaction_data": {
@@ -205,6 +207,7 @@ For a given contact, this object defines a relationship with a user
 |Company Identity|One of the valid identities for the company|String|No|
 |Company Name|One of the names that DotAlign could infer for the company|String|No|
 |Job Title|The job title that was held at the company|String|Yes|
+|Is Former|Indicator reflecting the likely status of the association between the person and this work experience|Boolean|No|
 
 ### Touch
 
