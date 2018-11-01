@@ -188,6 +188,10 @@ This is what the exported data for a contact would look like
       "email_address": "vince@dotalign.com",
       "relationship_score": "24"
     }
+     {
+      "email_address": "minh@dotalign.com",
+      "relationship_score": "15"
+    },
   ]
 }
 ````
