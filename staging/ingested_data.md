@@ -19,7 +19,7 @@ encryption in motion.
 
 - **Firewall** – Azure SQL Server can be configured to restrict access to only a specific list of IP addresses. In this case, only infrastructure components related to DotAlign Cloud are on that list.
 
-- **Encrypted Connection Strings** - App settings and connection strings are stored encrypted and decrypted only before being injected into the application’s process memory when it starts. The encryption keys used, are regularly rotated.
+- **Encrypted Connection Strings** - App settings and connection strings are stored encrypted and decrypted only before being injected into the application’s process memory when it starts. The encryption keys used are regularly rotated.
 
 
 ## Data Types
