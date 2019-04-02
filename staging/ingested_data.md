@@ -38,7 +38,8 @@ a mailbox. The data is then processed, parsed and stored in the underlying datab
 | InetMsgId | The internet "message id" of the message | string |
 | FolderSourceKey | A unique identifier for the folder that the message lives in | string |
 | Participants | A list of message participant objects | list of [Participant](#participant) objects |
-| Attachments | A list of attachment names (we don't yet process or store attachment content) | list of strings | Categories | The tags applied to the message at the source | string |
+| Attachments | A list of attachment names (we don't yet process or store attachment content) | list of strings |
+| Categories | The tags applied to the message at the source | string |
 
 ### Participant
 
