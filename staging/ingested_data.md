@@ -2,17 +2,6 @@
 
 <br />
 
-<div style="font-size: 20px">Table of Contents</div>
-
-<!-- TOC -->
-
-- [Introduction](#introduction)
-- [Data Types](#data-types)
-    - [EmailMessage](#emailmessage)
-    - [Participant](#participant)
-
-<!-- /TOC -->
-
 ## Introduction
 This document contains an overview of the data consumed by DotAlign while indexing
 a mailbox. The data is then processed, parsed and stored in the underlying database.  
@@ -22,7 +11,7 @@ a mailbox. The data is then processed, parsed and stored in the underlying datab
 ### EmailMessage 
 
 | Name | Description | Type | 
-|--|--|
+|--|--|--|
 | Subject | The subject text of the message | string |
 | Body | The full un-modified text of the message | string |
 | SubmitTime | The time at which the message was submitted by the sender | datetime |
@@ -46,7 +35,7 @@ a mailbox. The data is then processed, parsed and stored in the underlying datab
 This object represents a participant in an email message or calendar entry.
 
 | Name | Description | Type |
-|--|--|
+|--|--|--|
 | EmailAddress | The email address of the participant | string |
 | Name | The full name of the participant | String |
 | Role | The role, for example, sender, to, cc of the participant | string |
