@@ -4,7 +4,9 @@
 
 ## Introduction
 This document contains an overview of the data consumed by DotAlign while indexing
-a mailbox. The data is then processed, parsed and stored in the underlying database.  
+a mailbox. The data is then processed, parsed and stored in the underlying database,
+which is hosted on client-owned infrastructure. The data is never sent to DotAlign, Inc.,
+and no DotAlign, Inc. employees have access to it.  
 
 ## Data Types
 
