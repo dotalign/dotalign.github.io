@@ -16,7 +16,6 @@ a mailbox. The data is then processed, parsed and stored in the underlying datab
 | Body | The full un-modified text of the message | string |
 | SubmitTime | The time at which the message was submitted by the sender | datetime |
 | ReceivedTime | The time at which the message was received by the relevant recipient | datetime |
-| ReplyRequested | Does the message request a reply | boolean |
 | SourceKey | A unique identifier for the message, assigned by the source | string |
 | Important | Was this message flagged as important | boolean |
 | SenderEmail | The email address of the sender of the messaage | string |
