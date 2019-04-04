@@ -32,7 +32,7 @@ when it starts. The encryption keys used are regularly rotated.
 
 
 ## Data Types
-The following define the data object we pull in from the Office 365 source mailbox.Please 
+The following define the data object we pull in from the Office 365 source mailbox. Please 
 keep in mind that this information is subject to change as we make enhancements to the 
 product.
 
