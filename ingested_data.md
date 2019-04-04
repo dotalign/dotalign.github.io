@@ -8,21 +8,33 @@ a mailbox. The data is then processed, parsed and stored in the underlying datab
 which is hosted on the client's Azure tenant. The data is never sent to DotAlign, Inc.,
 and no DotAlign, Inc. employees have access to it.
 
-In addition to being on the client's Azure tenant, the database leverages the following security features: 
+In addition to being on the client's Azure tenant, the database leverages the 
+following security features: 
 
-- **SSL Transport Encryption** – Azure SQL Server supports the standard SSL encryption protocol to provide 
-encryption in motion.
+- **SSL Transport Encryption** – Azure SQL Server supports the standard SSL encryption 
+protocol to provide encryption in motion.
 
-- **Transparent Data Encryption (TDE)** – TDE is a form of file level encryption provided by Azure SQL Server. It provides encryption at rest. Data files cannot be accessed without the encryption key, which is stored separately in the Azure Key Vault.
+- **Transparent Data Encryption (TDE)** – TDE is a form of file level encryption provided 
+by Azure SQL Server. It provides encryption at rest. Data files cannot be accessed without 
+the encryption key, which is stored separately in the Azure Key Vault.
 
-- **Dynamic Data Masking (DDM)** – DotAlign enables dynamic data masking on database columns in Azure SQL Server to hide sensitive data from non-privileged users, to provide an additional layer of security. 
+- **Dynamic Data Masking (DDM)** – DotAlign enables dynamic data masking on database 
+columns in Azure SQL Server to hide sensitive data from non-privileged users, to provide 
+an additional layer of security. 
 
-- **Firewall** – Azure SQL Server can be configured to restrict access to only a specific list of IP addresses. In this case, only infrastructure components related to DotAlign Cloud are on that list.
+- **Firewall** – Azure SQL Server can be configured to restrict access to only a specific 
+list of IP addresses. In this case, only infrastructure components related to DotAlign 
+Cloud are on that list.
 
-- **Encrypted Connection Strings** - App settings and connection strings are stored encrypted and decrypted only before being injected into the application’s process memory when it starts. The encryption keys used are regularly rotated.
+- **Encrypted Connection Strings** - App settings and connection strings are stored 
+encrypted and decrypted only before being injected into the application’s process memory 
+when it starts. The encryption keys used are regularly rotated.
 
 
 ## Data Types
+The following define the data object we pull in from the Office 365 source mailbox.Please 
+keep in mind that this information is subject to change as we make enhancements to the 
+product.
 
 ### EmailMessage 
 
@@ -34,8 +46,8 @@ encryption in motion.
 | ReceivedTime | The time at which the message was received by the relevant recipient | datetime |
 | SourceKey | A unique identifier for the message, assigned by the source | string |
 | Important | Was this message flagged as important | boolean |
-| SenderEmail | The email address of the sender of the messaage | string |
-| SenderName | The name of the sender of the messaage | string |
+| SenderEmail | The email address of the sender of the message | string |
+| SenderName | The name of the sender of the message | string |
 | ReturnPath | The reply-to email address, if any, for the message | string |
 | ConversationKey | The conversation key for the message | string |
 | TransportHeaders | The transport headers for the message | key-value pairs (string-string) |
