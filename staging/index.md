@@ -1,5 +1,2 @@
-![DotAlign, Inc. Logo](/images/dotalign-square-48-clear.png)
-
-<br />
-
 [Consuming DotAlign Data](data.md)
+[DotAlign data ingestion](ingested_data.md)
