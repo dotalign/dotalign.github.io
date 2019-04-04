@@ -1,8 +1,8 @@
-<div style="font-size: 40px">Consuming DotAlign Data</div>
+<div style="font-size: 40px">Consuming DotAlign data</div>
 
 <br />
 
-<div style="font-size: 20px">Table of Contents</div>
+<div style="font-size: 20px">Table of contents</div>
 
 <!-- TOC -->
 
@@ -32,7 +32,7 @@
 ## Introduction
 DotAlign privately analyzes email, calendar, contacts, and LinkedIn data, to provide productivity and relationship intelligence, right inside Outlook. It also allows colleagues inside a firm to share the list of People and Company relationships with each other, and allows that information to be exported for integration into other enterprise applications. This document describes the exported data and considerations that must be made while dealing with DotAlign data
 
-## Data Points
+## Data points
 
 ### Company
 For each company extracted by DotAlign, the following data points  are available.
@@ -204,7 +204,7 @@ For a given contact, this object defines a relationship with a user
 |Email Address|The id (email address) of the DotAlign User|String|No |
 |Relationship Score|The score of the personal relationship between the user and the contact | Number in the range 1 to 99|No |
 
-### Work Experience
+### Work experience
 
 |Name| Description | Type|Nullable|
 |--|--|--|--|
@@ -220,14 +220,14 @@ For a given contact, this object defines a relationship with a user
 |When|The date and time at which the touch happened |DateTime|No|
 |Who|A list of DotAlign user ids (i.e. email addresses) involved in that touch |List of Strings|No|
 
-### Phone Number
+### Phone number
 
 |Name| Description | Type|Nullable|
 |--|--|--|--|
 |Digits|The digits (and possibly other characters) that make up the telephone number |String|No|
 |Type|One of "Work", "Home", "Mobile", "Fax" or "Other" |String|Yes|
 
-## Identity Alignment
+## Identity alignment
 This is a concept central to the functioning of DotAlign. DotAlign uses a sophisticated and extensible technique and data model (patent pending) to align people and company identities. This allows DotAlign to dynamically compute identities as there are changes in data, for example the addition or removal of a new data store.
 
 What that practically means is the following:
@@ -261,7 +261,7 @@ Here are some files that illustrate how the different scenarios would look like 
 
 To account for these possibilities, we suggest performing "reconciliation" as a part of the process of importing DotAlign data. One way to do that is shown below. 
 
-#### Suggested Data Model
+#### Suggested data model
 
 Two tables would be required, one with a row for each company, and the other with a mapping between the company and its identifiers. The same data model would also apply to contacts.
 
@@ -304,7 +304,7 @@ Two tables would be required, one with a row for each company, and the other wit
 
 Firstly, this allows the consumer to have a reasonably stable id that they can use to point other external data to. And secondly, it allows for the lookup needed to generate events to inform external systems about the latest state of an entity. 
 
-#### Suggested Algorithm
+#### Suggested algorithm
 
 The algorithm can be described using the following flow chart.
 
@@ -355,9 +355,9 @@ else
 ````
 Considerations regarding privacy and data revocation are discussed below.
 
-## Other Important Considerations
+## Other important considerations
 
-### Privacy and Data Management
+### Privacy and data management
 Privacy is a concern across the board, because of the natural dual ownership of relationship data between the individual and the enterprise. DotAlign's brand is about respecting the human sensibilities that go with sharing relationships and enabling individuals to be able to control access to their data. We think that when users feel comfortable and trust the platform, they in fact share more.
 
 A few things to think about w.r.t privacy:
