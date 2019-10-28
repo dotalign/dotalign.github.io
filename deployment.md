@@ -20,7 +20,7 @@ DotAlign Cloud is a solution provided by DotAlign, Inc., deployed to your Azure 
 ## Deployment
 To deploy DotAlign Cloud to your Azure tenant, you can run the following command in a PowerShell console:
 
-> ` .\DeployDotAlign.ps1 -appServicePlanName <AppServicePlanToUse>`
+> ` .\DeployDotAlign.ps1 -appServicePlanName:<AppServicePlanToUse>`
 
 A few points to note:
 
@@ -30,11 +30,11 @@ A few points to note:
 ### Deploying to an ASE
 Deploying to an ASE is also possible, but please note the following important points.
 
-The scripts attempts to deploy the Kudu url of the function and web apps. This url usually takes the form: 
+The scripts attempts to deploy to the Kudu/SCM url, which is essentially the "management" url of the function and web apps. This url usually takes the form: 
 
 > `https://<AppName>.scm.azurewebistes.net/api/zipdeploy`
 
-However, if you are deploying to an ASE (App Service Environment), then the Kudi url will take the form:
+However, if you are deploying to an ASE (App Service Environment), then the Kudu/SCM url will take the form:
 
 > `https://<AppName>.scm.<ASEName>.appserviceenvironment.net/api/webdeploy` 
 
@@ -50,10 +50,10 @@ DotAlign Cloud needs an app registration to be able to access resouces like Azur
 
 ## Relevant links
 
-1. Function app Kudu/SCM url is unreachable.
+1. Function app Kudu/SCM url is unreachable.</br>
    https://social.msdn.microsoft.com/Forums/en-US/3e2aa429-727c-467d-b28e-9fa15e189835/azure-functions-runtime-is-unreachable-when-deployed-on-a-isolated-asp-ilb-ase?forum=AzureFunctions
 
-2. Network configuration for ASE.
+2. Network configuration for ASE.</br>
    https://docs.microsoft.com/en-us/azure/app-service/environment/network-info#functions-and-web-jobs
 
 {% include footer.html %}
