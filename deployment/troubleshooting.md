@@ -6,12 +6,12 @@
 
 <div style="font-size: 20px">Table of contents</div>
 
-- [Function App doesn't seem to be starting up](###Website-is-accessible-but-the-function-app-is-not-starting-up)
+- [Function app doesn't seem to be starting up](###Website-is-accessible-but-the-function-app-is-not-starting-up)
 - [Updating a deployment fails](###updating-a-deployment-fails)
 
 <!-- /TOC -->
 
-## Website is accessible but the function app is not-starting-up
+## Function app doesn't seem to be starting up
 
 DotAlign Cloud comprises, among other things, a web app and a function app. The web app allows access to pages and the API, where as the function app is where the data processing happens.
 
