@@ -6,8 +6,8 @@
 
 <div style="font-size: 20px">Table of contents</div>
 
-- [Function app doesn't seem to be starting up](###Website-is-accessible-but-the-function-app-is-not-starting-up)
-- [Updating a deployment fails](###updating-a-deployment-fails)
+- [Function app doesn't seem to be starting up](##Website-is-accessible-but-the-function-app-is-not-starting-up)
+- [Updating a deployment fails](##updating-a-deployment-fails)
 
 <!-- /TOC -->
 
