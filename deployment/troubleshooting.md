@@ -2,9 +2,11 @@
 
 <br />
 
+<!-- TOC -->
+
 <div style="font-size: 20px">Table of contents</div>
 
-<!-- TOC -->
+<br />
 
 - [Function App doesn't seem to be starting up](###Website-is-accessible-but-the-function-app-is-not-starting-up)
 - [Updating a deployment fails](###updating-a-deployment-fails)
