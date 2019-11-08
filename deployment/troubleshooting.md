@@ -13,6 +13,8 @@
 
 <!-- /TOC -->
 
+<hr />
+
 ### Website is accessible but the function app is not-starting-up
 
 DotAlign Cloud comprises, among other things, a web app and a function app. The web app allows access to pages and the API, where as the function app is where the data processing happens.
