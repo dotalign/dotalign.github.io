@@ -6,12 +6,12 @@
 
 <div style="font-size: 20px">Table of contents</div>
 
-- [Function app doesn't seem to be starting up](##Website-is-accessible-but-the-function-app-is-not-starting-up)
-- [Updating a deployment fails](##updating-a-deployment-fails)
+- [Function app doesn't seem to be starting up](#Function-app-doesn't-seem-to-be-starting-up)
+- [Updating a deployment fails](#updating-a-deployment-fails)
 
 <!-- /TOC -->
 
-## Function app doesn't seem to be starting up
+# Function app doesn't seem to be starting up
 
 DotAlign Cloud comprises, among other things, a web app and a function app. The web app allows access to pages and the API, where as the function app is where the data processing happens.
 
@@ -25,7 +25,7 @@ If data processing is not happening, the following may be the issues:
 
 1. The function app is not deployed correctly. Redeploy DotAlign Cloud. An update should work, but in case it doesn't try a fresh deployment.
 
-## Updating a deployment fails
+# Updating a deployment fails
 
 One reason an update my fail is if the original deployment was made by a different person. The underlying cause is Key Vault, wheere the person updating the deployment does not have access to it, and hence the update fails. 
 
