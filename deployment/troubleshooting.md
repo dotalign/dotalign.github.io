@@ -6,7 +6,8 @@
 
 <!-- TOC -->
 
-- [Function App not starting up](###Website-is-accessible-but-the-function-app-is-not-starting-up)
+- [Function App doesn't seem to be starting up](###Website-is-accessible-but-the-function-app-is-not-starting-up)
+- [Updating a deployment fails](###updating-a-deployment-fails)
 
 <!-- /TOC -->
 
@@ -21,7 +22,7 @@ If data processing is not happening, the following may be the issues:
 1. The storage account assopciated with the function app settings is not the same as the storage account url in the web app - fix the setting. Both apps must point to the same storage account. This fix can be made in the application settings of the function and/or web apps.
 1. The function app is not deployed correctly - Redeploy DotAlign Cloud. An update should work, but in case it doesn't try a fresh deployment.
 
-### Update to deployment fails
+### Updating a deployment fails
 
 One reason an update my fail is if the original deployment was made by a different person. The underlying cause is Key Vault, wheere the person updating the deployment does not have access to it, and hence the update fails. 
 
