@@ -20,15 +20,19 @@ DotAlign Cloud is a solution provided by DotAlign, Inc., deployed to your Azure 
 ## Deployment
 To deploy DotAlign Cloud to your Azure tenant, you can run the following command in a PowerShell console:
 
+> ` .\DeployDotAlign.ps1`
+
+### Deploying to an ASE
+To deploy to an ASE (App Service Environment), you must have set up an app service plan before hand which points to the ASE as its location. 
+
+The you can execute the following command to get going:
+
 > ` .\DeployDotAlign.ps1 -appServicePlanName:<AppServicePlanToUse>`
 
 A few points to note:
 
 1. The app service plan name specified should be a Windows based app service plan
 1. The deployment should be done in the same region as the plan. So if the app service plan was created in the `East US` region, the deployment must also be done in the `East US` region.
-
-### Deploying to an ASE
-Deploying to an ASE is also possible, but please note the following important points.
 
 The scripts attempts to deploy to the Kudu/SCM url, which is essentially the "management" url of the function and web apps. This url usually takes the form: 
 
